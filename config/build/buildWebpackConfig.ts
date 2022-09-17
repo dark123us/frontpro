@@ -9,9 +9,7 @@ export function buildWebpackConfig(options:BuildOptions):webpack.Configuration{
     const {mode, paths, isDev} = options;
     return {
         mode,
-        entry: {
-            main: paths.entry,
-        },
+        entry: paths.entry,
         output: {
             path: paths.build,
             filename: '[name].[contenthash].js',
@@ -23,7 +21,8 @@ export function buildWebpackConfig(options:BuildOptions):webpack.Configuration{
         },
         resolve: buildResolvers(),
         plugins: buildPlugin(options),
-        devtool: isDev? 'eval-cheap-module-source-map': undefined,
-        devServer: isDev ? buildDevServer(options) : undefined
+        // devtool: isDev? 'eval-cheap-module-source-map': undefined,
+        devtool: isDev? 'inline-source-map': undefined,
+        devServer: isDev ? buildDevServer(options) : undefined,
     }
 }

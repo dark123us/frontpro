@@ -8,7 +8,7 @@ import {BuildEnv, BuildMode, BuildPaths} from "./config/build/types/config";
 export default (env: BuildEnv) => {
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
-    const PORT = env.port || 4000;
+    const port = env.port || 4000;
 
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -16,7 +16,11 @@ export default (env: BuildEnv) => {
         template: path.resolve(__dirname, 'public', 'index.html'),
     }
 
-    const config: webpack.Configuration = buildWebpackConfig({mode, paths, isDev, env})
+    const config: webpack.Configuration = buildWebpackConfig({
+        mode,
+        paths,
+        isDev,
+        port})
 
     return config;
 }

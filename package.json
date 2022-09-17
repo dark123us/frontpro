@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:dev": "webpack serve --env mode=development --env port=4000 --config webpack.config.ts",
+    "build:serv": "webpack serve --env mode=development --env port=5000 --config webpack.config.ts",
     "build:prod": "webpack --env mode=production --config webpack.config.ts",
-    "start": "npm run build:dev",
+    "build:dev": "webpack --env mode=development --config webpack.config.ts",
+    "start": "npm run build:serv",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
