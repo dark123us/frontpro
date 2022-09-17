@@ -3,9 +3,10 @@ import {BuildOptions} from "./types/config";
 import {buildLoader} from "./buildLoader";
 import {buildResolvers} from "./buildResolvers";
 import {buildPlugin} from "./buildPlugin";
+import {buildDevServer} from "./buildDevServer";
 
 export function buildWebpackConfig(options:BuildOptions):webpack.Configuration{
-    const {mode, paths} = options;
+    const {mode, paths, isDev} = options;
     return {
         mode,
         entry: {
@@ -22,5 +23,7 @@ export function buildWebpackConfig(options:BuildOptions):webpack.Configuration{
         },
         resolve: buildResolvers(),
         plugins: buildPlugin(options),
+        devtool: isDev? 'eval-cheap-module-source-map': undefined,
+        devServer: isDev ? buildDevServer(options) : undefined
     }
 }
