@@ -12,7 +12,7 @@ export function buildWebpackConfig(options:BuildOptions):webpack.Configuration{
         entry: paths.entry,
         output: {
             path: paths.build,
-            filename: '[name].[contenthash:4].js',
+            filename: '[name].[contenthash:6].js',
             // filename: '[name].js',
             clean: true
         },
