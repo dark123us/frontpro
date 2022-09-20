@@ -4,6 +4,7 @@ export type BuildPaths = {
     entry: string;
     build: string;
     template: string;
+    src: string
 }
 
 export type BuildEnv = {
