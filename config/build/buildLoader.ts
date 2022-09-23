@@ -1,8 +1,8 @@
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import {BuildOptions} from "./types/config";
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
-export function buildLoader(options: BuildOptions):webpack.RuleSetRule[]{
+export function buildLoader(options: BuildOptions):webpack.RuleSetRule[] {
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
@@ -15,7 +15,7 @@ export function buildLoader(options: BuildOptions):webpack.RuleSetRule[]{
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack'],
-    }
+    };
 
     const babelLoader = {
         test: /\.(js|jsx|tsx)$/,
@@ -42,20 +42,20 @@ export function buildLoader(options: BuildOptions):webpack.RuleSetRule[]{
         use: [
             options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
                     modules: {
                         auto: (fPath: string) => Boolean(fPath.includes('.module.scss')),
                         localIdentName: options.isDev
-                            ? "[path][name]__[local]--[hash:base64:6]"
-                            : "[hash:base64:8]",
-                    }
-                }
+                            ? '[path][name]__[local]--[hash:base64:6]'
+                            : '[hash:base64:8]',
+                    },
+                },
             },
-            "sass-loader",
+            'sass-loader',
         ],
-    }
-    const typescriptLoader  = {
+    };
+    const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -66,5 +66,5 @@ export function buildLoader(options: BuildOptions):webpack.RuleSetRule[]{
         babelLoader,
         typescriptLoader,
         styleLoader,
-    ]
+    ];
 }
