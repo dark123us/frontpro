@@ -1,6 +1,10 @@
 type Mods = Record<string, boolean | string>
 
-export function classNames(cls: string, mods: Mods = {}, addition: string[] = []): string {
+export function classNames(
+    cls: string,
+    mods: Mods = {},
+    addition: string[] = [],
+): string {
     return [
         cls,
         ...addition,

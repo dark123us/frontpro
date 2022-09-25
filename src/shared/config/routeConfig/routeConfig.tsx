@@ -2,7 +2,7 @@ import { RouteProps } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 
-const enum AppRoutes {
+export const enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about'
 }
