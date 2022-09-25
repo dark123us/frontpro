@@ -2,5 +2,6 @@
   "Main": "Главная",
   "About": "О сайте",
   "translate": "to english",
-  "toggle": "toggle"
+  "toggle": "переключить",
+  "Not found data": "Данные не найдены"
 }

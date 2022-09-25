@@ -2,5 +2,6 @@
   "Main": "Main",
   "About": "About",
   "translate": "на русский",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "Not found data": "Not found data"
 }
