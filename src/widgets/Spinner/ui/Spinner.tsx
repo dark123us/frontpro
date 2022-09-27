@@ -9,7 +9,6 @@ interface SpinnerProps {
 export const Spinner:FC<SpinnerProps> = (props) => {
     const {
         className,
-        children,
     } = props;
     return (
         <div className={classNames('lds-spinner', {}, [className])}>

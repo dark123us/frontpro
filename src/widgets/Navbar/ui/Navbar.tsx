@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'widgets/AppLink';
 import { useTranslation } from 'react-i18next';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutes, RoutePath } from 'app/providers/router/config/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

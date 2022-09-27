@@ -10,7 +10,6 @@ interface LoaderPageProps {
 export const LoaderPage:FC<LoaderPageProps> = (props) => {
     const {
         className,
-        children,
     } = props;
     return (
         <div className={classNames(cls.loaderPage, {}, [className])}>

@@ -1,4 +1,5 @@
 {
   "Main": "Main",
-  "Main content": "Main content"
+  "Main content": "Main content",
+  "getError": "fire Error event"
 }
