@@ -13,8 +13,6 @@ interface SidebarProps {
 export const Sidebar: FC<SidebarProps> = (props) => {
     const {
         className,
-        children,
-        ...otherProps
     } = props;
 
     const [isCollapse, setCollapsed] = useState(false);
@@ -32,7 +30,6 @@ export const Sidebar: FC<SidebarProps> = (props) => {
                 { [cls.collapsed]: isCollapse },
                 [className],
             )}
-            {...otherProps}
         >
             <div className={classNames(cls.switchers)}>
                 <ThemeSwitcher />
