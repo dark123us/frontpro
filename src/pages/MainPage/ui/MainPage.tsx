@@ -3,7 +3,7 @@ import { Spinner } from 'widgets/Spinner';
 import { Button } from 'widgets/Button';
 import { useEffect, useState } from 'react';
 
-const Main = () => {
+const MainPage = () => {
     const { t } = useTranslation('main');
 
     const [error, setError] = useState(false);
@@ -27,4 +27,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default MainPage;

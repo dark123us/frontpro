@@ -9,6 +9,10 @@ export default {
     title: 'Widgets/AppLink',
     component: AppLink,
     argTypes: {},
+    args: {
+        to: '/',
+        children: 'Text Link',
+    },
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => (
@@ -17,30 +21,22 @@ const Template: ComponentStory<typeof AppLink> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-    to: '/',
-    children: 'Text Link',
     theme: AppLinkTheme.PRIMARY,
 };
 
 export const Inverted = Template.bind({});
 Inverted.args = {
-    to: '/',
-    children: 'Text Link',
     theme: AppLinkTheme.INVERTED,
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-    to: '/',
-    children: 'Text Link',
     theme: AppLinkTheme.PRIMARY,
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const InvertedDark = Template.bind({});
 InvertedDark.args = {
-    to: '/',
-    children: 'Text Link',
     theme: AppLinkTheme.INVERTED,
 };
 InvertedDark.decorators = [ThemeDecorator(Theme.DARK)];
