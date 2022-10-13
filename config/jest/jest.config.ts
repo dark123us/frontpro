@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
@@ -34,6 +36,8 @@ export default {
         '\\\\node_modules\\\\',
     ],
 
+    modulePaths: ['<rootDir>src'],
+
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: [
         'node_modules',
@@ -45,6 +49,13 @@ export default {
     ],
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
+
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "C:\\Users\\dark1\\AppData\\Local\\Temp\\jest",
 
