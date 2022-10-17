@@ -1,9 +1,10 @@
 {
   "Main": "Main",
   "About": "About",
-  "translate": "на русский",
   "toggle": "toggle",
   "Not found data": "Not found data",
   "Что-то пошло не так": "Something wrong",
-  "reload page": "reload page"
+  "reload page": "reload page",
+  "translate": "на русский",
+  "translate_short": "Рус"
 }
