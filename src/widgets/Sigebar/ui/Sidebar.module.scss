@@ -43,15 +43,16 @@
 
 .icon {
     fill: var(--secondary-color);
-
 }
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
+
     .switchers {
         flex-direction: column;
         align-items: center;
     }
+
     .link {
         opacity: 0;
         transition: opacity 0.2s;
