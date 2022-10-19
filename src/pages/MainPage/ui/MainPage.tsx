@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Spinner } from 'widgets/Spinner';
 import { Button } from 'widgets/Button';
 import { useEffect, useState } from 'react';
+import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -23,6 +24,7 @@ const MainPage = () => {
             <Spinner />
             <Button onClick={onError}>{t('getError')}</Button>
             {error}
+            <Counter />
         </div>
     );
 };

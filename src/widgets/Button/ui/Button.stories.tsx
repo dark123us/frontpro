@@ -33,7 +33,7 @@ ClearInverted.args = {
 export const Outline = Template.bind({});
 Outline.args = {
     children: 'Button Text',
-    theme: ButtonTheme.OTLINE,
+    theme: ButtonTheme.OUTLINE,
 };
 
 export const PrimaryDark = Template.bind({});
@@ -52,7 +52,7 @@ ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
     children: 'Button Text',
-    theme: ButtonTheme.OTLINE,
+    theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
