@@ -1,4 +1,4 @@
-import { Button, ButtonTheme } from 'widgets/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getCounterValue,

@@ -10,13 +10,14 @@ interface ThemeProviderProps {
     initialTheme?: Theme
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const {
         children,
         initialTheme,
     } = props;
 
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    document.body.className = theme;
 
     const defaultProps = useMemo(() => ({
         theme,
@@ -29,5 +30,3 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
         </ThemeContext.Provider>
     );
 };
-
-export default ThemeProvider;

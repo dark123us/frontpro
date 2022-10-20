@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'widgets/Button';
-import { ButtonSize } from 'widgets/Button/ui/Button';
-import { AppLink, AppLinkTheme } from 'widgets/AppLink';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { ButtonSize } from 'shared/ui/Button/ui/Button';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';

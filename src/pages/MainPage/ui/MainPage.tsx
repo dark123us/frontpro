@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { Spinner } from 'widgets/Spinner';
-import { Button } from 'widgets/Button';
+import { Spinner } from 'shared/ui/Spinner';
+import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
-import { Counter } from 'entities/Counter';
+// import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -17,6 +17,8 @@ const MainPage = () => {
         if (error) throw new Error('opa');
     }, [error]);
 
+    // <Counter />
+
     return (
         <div>
             <h1>{t('Main')}</h1>
@@ -24,7 +26,7 @@ const MainPage = () => {
             <Spinner />
             <Button onClick={onError}>{t('getError')}</Button>
             {error}
-            <Counter />
+
         </div>
     );
 };

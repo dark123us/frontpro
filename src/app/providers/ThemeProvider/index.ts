@@ -1,4 +1,2 @@
-import ThemeProvider from 'app/providers/ThemeProvider/ui/ThemeProvider';
-
-export { ThemeProvider };
+export { ThemeProvider } from './ui/ThemeProvider';
 export { useTheme } from './lib/useTheme';

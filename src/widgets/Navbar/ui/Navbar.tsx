@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'widgets/AppLink';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { useTranslation } from 'react-i18next';
 import { AppRoutes, RoutePath } from 'app/providers/router/config/routeConfig';
-import { Modal } from 'widgets/Modal';
-import { Button, ButtonTheme } from 'widgets/Button';
+import { Modal } from 'shared/ui/Modal';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useCallback, useState } from 'react';
 import cls from './Navbar.module.scss';
 
