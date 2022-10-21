@@ -18,9 +18,3 @@ Primary.args = {
     placeholder: 'placeholder',
     value: '123123',
 };
-
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Button Text',
-
-};

@@ -65,6 +65,7 @@ export const Input = memo((props:InputProps) => {
                 )}
             <div className={cls.caretWrapper}>
                 <input
+                    data-testid="input"
                     ref={ref}
                     className={cls.input}
                     type={type}
