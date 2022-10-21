@@ -1,5 +1,7 @@
 {
   "Main": "Main",
   "Main content": "Main content",
-  "getError": "fire Error event"
+  "getError": "fire Error event",
+  "placeholer": "placeholer",
+  "placeholder": "placeholder"
 }

@@ -6,7 +6,7 @@ import {
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
-    title: 'Widgets/Button',
+    title: 'Shared/Button',
     component: Button,
     argTypes: {},
 } as ComponentMeta<typeof Button>;

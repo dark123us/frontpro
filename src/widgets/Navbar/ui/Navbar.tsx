@@ -5,6 +5,7 @@ import { AppRoutes, RoutePath } from 'app/providers/router/config/routeConfig';
 import { Modal } from 'shared/ui/Modal';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useCallback, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -15,8 +16,12 @@ export const Navbar = ({ className }:NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
-    const onToggleModal = useCallback(() => {
-        setIsAuthModal((prev) => !prev);
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
     }, []);
 
     return (
@@ -37,19 +42,15 @@ export const Navbar = ({ className }:NavbarProps) => {
                 </AppLink>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onToggleModal}
+                    onClick={onShowModal}
                 >
                     {t('Enter')}
                 </Button>
 
-                <Modal
+                <LoginModal
                     isOpen={isAuthModal}
-                    onClose={onToggleModal}
-                >
-                    {/* eslint-disable-next-line i18next/no-literal-string */}
-                    {/* eslint-disable-next-line max-len,react/no-unescaped-entities */}
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap int
-                </Modal>
+                    onClose={onCloseModal}
+                />
 
             </div>
         </div>

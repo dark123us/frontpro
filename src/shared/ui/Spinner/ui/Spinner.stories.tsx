@@ -6,7 +6,7 @@ import {
 import { Spinner } from './Spinner';
 
 export default {
-    title: 'Widgets/Spinner',
+    title: 'Shared/Spinner',
     component: Spinner,
     argTypes: {},
 } as ComponentMeta<typeof Spinner>;

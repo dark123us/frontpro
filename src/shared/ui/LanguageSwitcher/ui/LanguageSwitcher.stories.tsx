@@ -6,7 +6,7 @@ import {
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export default {
-    title: 'Widgets/LanguageSwitcher',
+    title: 'Shared/LanguageSwitcher',
     component: LanguageSwitcher,
     argTypes: {},
     args: {

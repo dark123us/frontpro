@@ -6,7 +6,7 @@ import {
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
-    title: 'Widgets/ThemeSwitcher',
+    title: 'Shared/ThemeSwitcher',
     component: ThemeSwitcher,
     argTypes: {},
     args: {

@@ -6,7 +6,7 @@ import {
 import { AppLink, AppLinkTheme } from './AppLink';
 
 export default {
-    title: 'Widgets/AppLink',
+    title: 'Shared/AppLink',
     component: AppLink,
     argTypes: {},
     args: {
