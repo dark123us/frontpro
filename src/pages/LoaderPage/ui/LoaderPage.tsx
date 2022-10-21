@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
-import { Spinner } from 'widgets/Spinner';
+import { Spinner } from 'shared/ui/Spinner';
 import cls from './LoaderPage.module.scss';
 
 interface LoaderPageProps {

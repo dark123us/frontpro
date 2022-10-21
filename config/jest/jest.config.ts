@@ -10,7 +10,7 @@ export default {
     clearMocks: true,
 
     // Indicates whether the coverage information should be collected while executing the test
-    collectCoverage: true,
+    collectCoverage: false,
     // The directory where Jest should output its coverage files
     coverageDirectory: 'coverage',
     // Indicates which provider should be used to instrument code for coverage
@@ -56,6 +56,10 @@ export default {
         '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
 
+    // A set of global variables that need to be available in all test environments
+    globals: {
+        __IS_DEV__: true,
+    },
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "C:\\Users\\dark1\\AppData\\Local\\Temp\\jest",
 
@@ -87,9 +91,6 @@ export default {
 
     // A path to a module which exports an async function that is triggered once after all test suites
     // globalTeardown: undefined,
-
-    // A set of global variables that need to be available in all test environments
-    // globals: {},
 
     // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
