@@ -2,6 +2,8 @@ const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
 
+const TIMEOUT = 800;
+const PORT = 8000;
 const server = jsonServer.create();
 
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
@@ -9,10 +11,22 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
+server.use((req, res, next) => {
+    console.log(req.url);
+    console.log(req.body);
+    next();
+});
+
+// server.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
+//     res.header('Access-Control-Allow-Headers', '*');
+//     next();
+// });
+
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
-        setTimeout(res, 800);
+        setTimeout(res, TIMEOUT);
     });
     next();
 });
@@ -47,13 +61,12 @@ server.use((req, res, next) => {
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });
     }
-
     next();
 });
 
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+server.listen(PORT, () => {
+    console.log(`server is running on ${PORT} port`);
 });

@@ -7,5 +7,9 @@
   "reload page": "reload page",
   "translate": "на русский",
   "translate_short": "Рус",
-  "Enter": "Enter"
+  "Enter": "Enter",
+  "Uncorrected username or password": "Uncorrected username or password",
+  "Enter password": "Enter password",
+  "Enter username": "Enter username",
+  "Logout": "Logout"
 }

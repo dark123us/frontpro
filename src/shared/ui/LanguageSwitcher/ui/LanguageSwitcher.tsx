@@ -17,7 +17,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
 
     return (
         <Button
-            theme={ButtonTheme.CLEAR}
+            theme={ButtonTheme.BACKGROUND_INVERTED}
             onClick={onLanguagechange}
             className={classNames('', {}, [className])}
         >

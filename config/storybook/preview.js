@@ -9,6 +9,12 @@ import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
 import {
     BrowserDecorator,
 } from '../../src/shared/config/Storybook/Decorators/BrowserDecorator';
+import {
+    SuspenseDecorator,
+} from '../../src/shared/config/Storybook/Decorators/SuspenseDecorator';
+// import {
+//     TranslationDecorator,
+// } from '../../src/shared/config/Storybook/Decorators/TranslationDecorator';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -21,5 +27,7 @@ export const parameters = {
 };
 
 addDecorator(StyleDecorator);
+addDecorator(SuspenseDecorator);
+// addDecorator(TranslationDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(BrowserDecorator);

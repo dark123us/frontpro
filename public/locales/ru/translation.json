@@ -7,5 +7,9 @@
   "reload page": "Обновить страницу",
   "translate": "to english",
   "translate_short": "EN",
-  "Enter": "Войти"
+  "Enter": "Войти",
+  "Uncorrected username or password": "Невеный логин или пароль",
+  "Enter password": "Введите пароль",
+  "Enter username": "Введите логин",
+  "Logout": "Выйти"
 }

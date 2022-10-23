@@ -96,3 +96,11 @@ SquareXL.args = {
     theme: ButtonTheme.BACKGROUND_INVERTED,
 };
 SquareXL.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    children: 'disabled',
+    theme: ButtonTheme.OUTLINE,
+    disabled: true,
+};
+Disabled.decorators = [ThemeDecorator(Theme.LIGHT)];
