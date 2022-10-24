@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/Storybook/Decorators/StoreDecorator';
-import { SuspenseDecorator } from 'shared/config/Storybook/Decorators/SuspenseDecorator';
 import { LoginForm } from './LoginForm';
 
 export default {

@@ -25,7 +25,7 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook:server": "start-storybook -p 6006 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook",
-    "dev:json_server": "npx json-server --watch json-server/db.json --port 8000",
+    "dev:server:db": "npx json-server --watch json-server/db.json --port 8000",
     "dev:server": "node json-server/index.js",
     "prepare": "husky install"
   },
