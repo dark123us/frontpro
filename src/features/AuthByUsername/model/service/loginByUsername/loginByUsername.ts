@@ -8,6 +8,10 @@ interface LoginByUsername {
     password: string;
 }
 
+export enum Message {
+    ERROR_USERNAME = 'error_username'
+}
+
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsername,
@@ -30,9 +34,9 @@ export const loginByUsername = createAsyncThunk<
                 thunkApi.dispatch(userActions.setAuthData(response.data));
                 return response.data;
             } catch (e) {
-                console.error(e);
+                // console.error(e);
                 return thunkApi.rejectWithValue(
-                    'Uncorrected username or password',
+                    Message.ERROR_USERNAME,
                 );
             }
         },
