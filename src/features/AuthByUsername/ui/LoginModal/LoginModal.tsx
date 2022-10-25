@@ -25,7 +25,7 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
             className={classNames(cls.loginModal, {}, [className])}
         >
             <Suspense fallback={<Spinner />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onClose} />
             </Suspense>
         </Modal>
     );
