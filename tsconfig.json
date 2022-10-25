@@ -11,9 +11,10 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-       "*":["./src/*"],
+       "*":["./src/*"]
     },
-    "sourceMap": true
+    "sourceMap": true,
+    "strict": true
   },
   "ts-node": {
       "compilerOptions": {
