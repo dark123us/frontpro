@@ -1,5 +1,5 @@
 import {
-    CombinedState, configureStore, DeepPartial, Reducer, ReducersMapObject,
+    CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User/model/slice/userSlice';

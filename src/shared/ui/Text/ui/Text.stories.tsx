@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/Storybook/Decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { InvertedDark } from 'shared/ui/AppLink/ui/AppLink.stories';
 import { Text, TextTheme } from './Text';
 
 export default {

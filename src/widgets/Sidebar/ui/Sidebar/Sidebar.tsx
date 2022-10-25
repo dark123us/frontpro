@@ -1,10 +1,9 @@
 import {
-    FC, memo, useMemo, useState,
+    memo, useMemo, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LanguageSwitcher } from 'shared/ui/LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { ButtonSize } from 'shared/ui/Button/ui/Button';
 import cls from './Sidebar.module.scss';
@@ -25,8 +24,6 @@ export const Sidebar = memo((props:SidebarProps) => {
     const onToggle = () => {
         setCollapsed((prev) => !prev);
     };
-    const { t } = useTranslation();
-
     const sidebarItems = useMemo(() => SidebarItemsList.map((item) => (
         <SidebarItem
             key={item.path}

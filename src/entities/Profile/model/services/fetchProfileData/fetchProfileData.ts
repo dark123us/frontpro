@@ -1,12 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { ThunkConfig, ThunkExtraArg } from 'app/providers/StoreProvider';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from '../../types/profile';
 
-interface LoginByUsername {
-    username: string;
-    password: string;
-}
+// interface LoginByUsername {
+//     username: string;
+//     password: string;
+// }
 
 export enum Message {
     ERROR = 'error'

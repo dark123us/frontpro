@@ -61,7 +61,6 @@ BackgroundTheme.args = {
     children: 'Button Text',
     theme: ButtonTheme.BACKGROUND,
 };
-BackgroundTheme.decorators = [ThemeDecorator(Theme.LIGHT)];
 
 export const BackgroundInvertedTheme = Template.bind({});
 BackgroundInvertedTheme.args = {

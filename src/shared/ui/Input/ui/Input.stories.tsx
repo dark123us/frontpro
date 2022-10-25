@@ -18,3 +18,10 @@ Primary.args = {
     placeholder: 'placeholder',
     value: '123123',
 };
+
+export const Dark = Template.bind({});
+Dark.args = {
+    placeholder: 'placeholder',
+    value: '123123',
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
