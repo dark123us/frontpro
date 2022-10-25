@@ -9,8 +9,9 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 import 'app/styles/index.scss';
 
 render(
-    <StoreProvider>
-        <BrowserRouter>
+
+    <BrowserRouter>
+        <StoreProvider>
             <ErrorBoundary>
                 <ThemeProvider>
                     <Suspense fallback="">
@@ -18,8 +19,8 @@ render(
                     </Suspense>
                 </ThemeProvider>
             </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
 
     document.getElementById('app'),
 );
