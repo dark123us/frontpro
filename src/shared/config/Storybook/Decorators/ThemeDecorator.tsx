@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 export const ThemeDecorator = (theme: Theme) => (story: () => Story) => (
-    <ThemeProvider>
+    <ThemeProvider initialTheme={theme}>
         <div className={`app ${theme}`}>
             {story()}
         </div>
