@@ -6,6 +6,7 @@ import { getProfileData, getProfileError, getProfileIsLoading } from 'entities/P
 import { Text } from 'shared/ui/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -15,6 +16,7 @@ interface ProfileCardProps {
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation('profile');
+    const dispatch = useAppDispatch();
     const data = useSelector(getProfileData);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);

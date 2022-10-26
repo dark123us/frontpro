@@ -8,7 +8,14 @@ const reducers: ReducersList = {
     profile: profilerReducer,
 };
 
-export const ProfilePage = () => {
+interface ProfilePageProps {
+    className?: string;
+}
+
+export const ProfilePage = (props: ProfilePageProps) => {
+    const {
+        className,
+    } = props;
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
@@ -18,7 +25,7 @@ export const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div>
+            <div className={className}>
                 {t('ProfilePage')}
                 <ProfileCard />
             </div>
