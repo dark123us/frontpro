@@ -8,18 +8,24 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ProfileCard.module.scss';
+import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-    className?: string
+    className?: string;
+//    data?: Profile;
+
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
-    const { className } = props;
+    const {
+        className,
+        // data,
+    } = props;
     const { t } = useTranslation('profile');
-    const dispatch = useAppDispatch();
+    // const dispatch = useAppDispatch();
     const data = useSelector(getProfileData);
-    const isLoading = useSelector(getProfileIsLoading);
-    const error = useSelector(getProfileError);
+    // const isLoading = useSelector(getProfileIsLoading);
+    // const error = useSelector(getProfileError);
 
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
