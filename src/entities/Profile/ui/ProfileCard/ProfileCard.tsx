@@ -1,55 +1,177 @@
-import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getProfileData, getProfileError, getProfileIsLoading } from 'entities/Profile/model/selectors/getProfile';
-import { Text } from 'shared/ui/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Text, TextTheme, TextAlign } from 'shared/ui/Text';
 import { Input } from 'shared/ui/Input';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Spinner } from 'shared/ui/Spinner';
+import { Avatar } from 'shared/ui/Avatar/';
+import { Currency } from 'entities/Currency/model/types/currency';
+import { CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
     className?: string;
-//    data?: Profile;
-
+    data?: Profile;
+    error?: string;
+    isLoading?: boolean;
+    readonly?: boolean;
+    onChangeFirstname?: (value?: string) => void;
+    onChangeLastname?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCurrency?: (value?: Currency) => void;
+    onChangeCountry?: (value?: Country) => void;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = (props) => {
+export const ProfileCard = (props: ProfileCardProps) => {
     const {
         className,
-        // data,
+        data,
+        isLoading,
+        error,
+        readonly,
+        onChangeFirstname,
+        onChangeLastname,
+        onChangeAge,
+        onChangeCity,
+        onChangeUsername,
+        onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry,
     } = props;
     const { t } = useTranslation('profile');
-    // const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
-    // const isLoading = useSelector(getProfileIsLoading);
-    // const error = useSelector(getProfileError);
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+                <Spinner />
+            </div>
+
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+                <Text
+                    title={t('An error occurred')}
+                    text={error}
+                    theme={TextTheme.ERROR}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
+
+    const mods = {
+        [cls.editing]: !readonly,
+    };
 
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
-            <div className={cls.header}>
-                <Text title={t('Profile')} />
-                <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                >
-                    {t('edit')}
-                </Button>
-            </div>
-            <div className={cls.data}>
-                <Input
-                    className={cls.input}
-                    value={data?.first}
-                    placeholder={t('Your name')}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.lastname}
-                    placeholder={t('Your lastname')}
-                />
-            </div>
+        <div className={classNames(cls.profileCard, mods, [className])}>
+            {
+                data?.avatar
+                && (
+                    <div className={cls.avatarWrapper}>
+                        <Avatar src={data?.avatar} />
+                    </div>
+                )
+            }
+            <Input
+                className={cls.input}
+                value={data?.first}
+                placeholder={t('Your name')}
+                onChange={onChangeFirstname}
+                readonly={readonly}
+            />
+            <Input
+                className={cls.input}
+                value={data?.lastname}
+                placeholder={t('Your lastname')}
+                onChange={onChangeLastname}
+                readonly={readonly}
+            />
+            <Input
+                className={cls.input}
+                value={data?.age}
+                placeholder={t('Age')}
+                onChange={onChangeAge}
+                number
+                readonly={readonly}
+            />
+            <Input
+                className={cls.input}
+                value={data?.city}
+                placeholder={t('Your city')}
+                onChange={onChangeCity}
+                readonly={readonly}
+            />
+            <Input
+                className={cls.input}
+                value={data?.username}
+                placeholder={t('Username')}
+                onChange={onChangeUsername}
+                readonly={readonly}
+            />
+            <Input
+                className={cls.input}
+                value={data?.avatar}
+                placeholder={t('avatar')}
+                onChange={onChangeAvatar}
+                readonly={readonly}
+            />
+            <CurrencySelect
+                className={cls.input}
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+            />
+            <CountrySelect
+                className={cls.input}
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+            />
+
         </div>
     );
 };
+
+// interface InputItemsProps {
+//     value?: string | number;
+//     placeholder: string;
+//     onChange?: (value?: string) => void;
+// }
+//
+// const inputItems: Array<InputItemsProps> = [
+//     {
+//         value: data?.first,
+//         onChange: onChangeFirstname,
+//         placeholder: t('Your first name'),
+//     }, {
+//         value: data?.lastname,
+//         placeholder: t('Your lastname'),
+//         onChange: onChangeFirstname,
+//     }, {
+//         value: data?.age,
+//         placeholder: t('Your age'),
+//         onChange: onChangeAge,
+//     }, {
+//         value: data?.city,
+//         placeholder: t('Your city'),
+//         onChange: onChangeCity,
+//     },
+// ];
+// {inputItems.map((val, i) => (
+//     <Input
+//         key={i}
+//         className={cls.input}
+//         value={val.value}
+//         placeholder={val.placeholder}
+//         onChange={val.onChange}
+//         readonly={readonly}
+//     />
+// ))}
