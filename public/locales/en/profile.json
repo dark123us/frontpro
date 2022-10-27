@@ -2,5 +2,9 @@
   "ProfilePage": "Profile Page",
   "Profile": "Profile",
   "edit": "edit",
-  "An error occurred": "An error occurred"
+  "An error occurred": "An error occurred",
+  "Server error": "Server error",
+  "Incorrect user data": "Incorrect user data",
+  "Incorrect city": "Incorrect city",
+  "Incorrect age": "Incorrect age"
 }

@@ -10,6 +10,7 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
         isDev,
         apiUrl,
         isBundleAnalyzer,
+        project,
     } = props;
 
     const plugins = [
@@ -23,6 +24,7 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 

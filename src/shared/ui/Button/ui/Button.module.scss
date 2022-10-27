@@ -17,15 +17,16 @@
 }
 
 .outline,
-.outlineRed{
+.outlineRed {
     padding: 10px 15px;
     border: 1px solid var(--primary-color);
-
     background: none;
 }
+
 .outline {
     color: var(--primary-color);
 }
+
 .outlineRed {
     color: var(--red-light);
 }

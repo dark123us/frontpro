@@ -60,6 +60,7 @@ export default {
     globals: {
         __IS_DEV__: true,
         __API__: '',
+        __PROJECT__: 'jest',
     },
     // The directory where Jest should store its cached dependency information
     // cacheDirectory: "C:\\Users\\dark1\\AppData\\Local\\Temp\\jest",

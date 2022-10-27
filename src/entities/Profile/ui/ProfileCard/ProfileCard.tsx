@@ -139,39 +139,3 @@ export const ProfileCard = (props: ProfileCardProps) => {
         </div>
     );
 };
-
-// interface InputItemsProps {
-//     value?: string | number;
-//     placeholder: string;
-//     onChange?: (value?: string) => void;
-// }
-//
-// const inputItems: Array<InputItemsProps> = [
-//     {
-//         value: data?.first,
-//         onChange: onChangeFirstname,
-//         placeholder: t('Your first name'),
-//     }, {
-//         value: data?.lastname,
-//         placeholder: t('Your lastname'),
-//         onChange: onChangeFirstname,
-//     }, {
-//         value: data?.age,
-//         placeholder: t('Your age'),
-//         onChange: onChangeAge,
-//     }, {
-//         value: data?.city,
-//         placeholder: t('Your city'),
-//         onChange: onChangeCity,
-//     },
-// ];
-// {inputItems.map((val, i) => (
-//     <Input
-//         key={i}
-//         className={cls.input}
-//         value={val.value}
-//         placeholder={val.placeholder}
-//         onChange={val.onChange}
-//         readonly={readonly}
-//     />
-// ))}
