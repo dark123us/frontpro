@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ls": "node -e \"console.log(require('.' + require('path').sep + 'package.json').scripts || {})\"",
+    "prepare": "husky install",
     "start": "npm run build:serv",
     "build": "webpack --env mode=production --config webpack.config.ts",
     "build:prod": "webpack --env mode=production --config webpack.config.ts",
@@ -27,7 +28,7 @@
     "storybook:build": "build-storybook -c config/storybook",
     "dev:server:db": "npx json-server --watch json-server/db.json --port 8000",
     "dev:server": "node json-server/index.js",
-    "prepare": "husky install"
+    "test:all": "npm run build:prod && npm run lint:ts && npm run lint:scss && npm run test:unit && npm run storybook:build && npm run test:ui"
   },
   "keywords": [],
   "author": "",
