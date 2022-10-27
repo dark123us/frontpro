@@ -9,6 +9,17 @@ import { Currency } from 'entities/Currency';
 import AvatarImage from 'shared/assets/test/avatar.jpg';
 import ProfilePage from './ProfilePage';
 
+const form = {
+    username: 'admin',
+    age: 35,
+    country: Country.Belarus,
+    lastname: 'Pimpkin',
+    first: 'Vasyz',
+    currency: Currency.EURO,
+    city: 'Minsk',
+    avatar: AvatarImage,
+};
+
 export default {
     title: 'Pages/ProfilePage',
     component: ProfilePage,
@@ -16,40 +27,17 @@ export default {
     args: {},
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () => (
-    <ProfilePage />
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
 );
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 35,
-            country: Country.Belarus,
-            lastname: 'Pimpkin',
-            first: 'Vasyz',
-            currency: Currency.EURO,
-            city: 'Minsk',
-            avatar: AvatarImage,
-        },
-    },
-})];
+Light.decorators = [StoreDecorator({ profile: { form } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            username: 'admin',
-            age: 35,
-            country: Country.Belarus,
-            lastname: 'Pimpkin',
-            first: 'Vasyz',
-            currency: Currency.EURO,
-            city: 'Minsk',
-            avatar: AvatarImage,
-        },
-    },
-})];
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ profile: { form } }),
+];

@@ -6,43 +6,43 @@ import { Currency } from 'entities/Currency';
 import AvatarImage from 'shared/assets/test/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
+const data = {
+    username: 'admin',
+    age: 35,
+    country: Country.Belarus,
+    lastname: 'Pimpkin',
+    first: 'Vasya',
+    currency: Currency.EURO,
+    city: 'Minsk',
+    avatar: AvatarImage,
+};
+
 export default {
     title: 'Entities/ProfileCard',
     component: ProfileCard,
     argTypes: {},
-    args: {
-        data: {
-            username: 'admin',
-            age: 35,
-            country: Country.Belarus,
-            lastname: 'Pimpkin',
-            first: 'Vasya',
-            currency: Currency.EURO,
-            city: 'Minsk',
-            avatar: AvatarImage,
-        },
-    },
+    args: {},
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args, context) => (
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
     <ProfileCard {...args} />
 );
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = { data };
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {
+    data,
     isLoading: true,
 };
 
 export const WithError = Template.bind({});
 WithError.args = {
+    data,
     error: 'error',
 };
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = { data };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
