@@ -5,7 +5,7 @@ import {
 import {
     ThemeDecorator,
 } from '../../src/shared/config/Storybook/Decorators/ThemeDecorator';
-import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
+import { Theme } from '../../src/app/providers/ThemeProvider';
 import {
     BrowserDecorator,
 } from '../../src/shared/config/Storybook/Decorators/BrowserDecorator';
