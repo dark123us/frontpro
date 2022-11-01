@@ -1,6 +1,6 @@
 .sidebar {
     height: calc(100vh - var(--navbar-height));
-    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
     transition: width ease-out 0.3s;
     background: var(--inverted-bg-color);
     position: relative;
