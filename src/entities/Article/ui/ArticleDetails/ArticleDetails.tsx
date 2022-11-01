@@ -34,7 +34,7 @@ const reducers: ReducersList = {
 
 export const ArticleDetails = memo((props:ArticleDetailsProps) => {
     const { className, articleId } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
 
     const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -73,7 +73,6 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
             );
         }
         if (error) {
-            // eslint-disable-next-line i18next/no-literal-string
             return <Text align={TextAlign.CENTER} title={t('Error loading article')} />;
         }
         return (
@@ -115,9 +114,7 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
             <div className={classNames(cls.articleDetails, {}, [className])}>
-                Article Details
                 {renderContent()}
             </div>
         </DynamicModuleLoader>

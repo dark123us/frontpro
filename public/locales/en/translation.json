@@ -13,5 +13,7 @@
   "Enter username": "Enter username",
   "Logout": "Logout",
   "Profile": "Profile",
-  "Articles": "Articles"
+  "Articles": "Articles",
+  "Copy": "Copy",
+  "Comments not found": "Comments not found"
 }

@@ -13,5 +13,7 @@
   "Enter username": "Введите логин",
   "Logout": "Выйти",
   "Profile": "Профайл",
-  "Articles": "Статьи"
+  "Articles": "Статьи",
+  "Copy": "Скопировать",
+  "Comments not found": "Коментарии не найдены"
 }
