@@ -37,3 +37,13 @@ jobs:
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
+      - name: make report
+        run: npm run test:ui:report
+        if: failure()
+      - name: save report
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'loki difference ${{ github.run_number }}'
+          path: .loki/
+          retention-days: 2
+        if: failure()

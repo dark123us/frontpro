@@ -4,8 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile';
+import {
+    getProfileData, getProfileReadonly, profileActions, updateProfileData,
+} from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -15,6 +18,11 @@ interface ProfilePageHeaderProps {
 export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation();
+
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = authData?.id === profileData?.id;
+
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
     const onEdit = useCallback(() => {
@@ -59,7 +67,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     return (
         <div className={classNames(cls.profilePageHeader, {}, [className])}>
             <Text title={t('Profile')} />
-            {btn}
+            {canEdit && btn}
         </div>
     );
 };

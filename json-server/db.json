@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,24 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "asdfasdfasdf",
+      "id": "UGqVMRS"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "ghbdtn gbh",
+      "id": "qdQnmPs"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123123123123",
+      "id": "Bqli7xv"
     }
   ],
   "users": [
@@ -118,14 +138,28 @@
       "avatar": "https://img.freepik.com/premium-photo/hacker-hacker-hacks-network-hacker-on-a-dark-background-dangerous-hooded-hacker-breaks-into-government-data-servers_184421-541.jpg?w=740"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://img.freepik.com/premium-photo/hacker-hacker-hacks-network-hacker-on-a-dark-background-dangerous-hooded-hacker-breaks-into-government-data-servers_184421-541.jpg?w=740"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://rebrainme.com/blog/wp-content/uploads/2020/05/haker.jpg"
+    },
+    {
+      "id": "2",
+      "first": "ulbi tv123",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "ulbi tv",
+      "avatar": "https://img.freepik.com/premium-photo/hacker-hacker-hacks-network-hacker-on-a-dark-background-dangerous-hooded-hacker-breaks-into-government-data-servers_184421-541.jpg?w=740"
+    }
+  ]
 }
