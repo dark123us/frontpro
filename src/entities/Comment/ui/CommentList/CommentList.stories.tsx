@@ -17,12 +17,12 @@ Normal.args = {
         {
             id: '1',
             text: 'hello world',
-            user: { id: 1, username: 'root' },
+            user: { id: '1', username: 'root' },
         },
         {
             id: '2',
             text: 'meto hello world',
-            user: { id: 2, username: 'user' },
+            user: { id: '2', username: 'user' },
         },
     ],
 };

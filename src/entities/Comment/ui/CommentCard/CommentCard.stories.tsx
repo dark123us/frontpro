@@ -17,7 +17,7 @@ Normal.args = {
     comment: {
         id: '1',
         text: 'hello world',
-        user: { id: 1, username: 'root' },
+        user: { id: '1', username: 'root' },
     },
 };
 Normal.decorators = [StoreDecorator({})];
