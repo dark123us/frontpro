@@ -32,8 +32,11 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     useInitialEffect(() => {
-        dispatch(fetchArticleList());
         dispatch(articlesPageActions.initState());
+        dispatch(fetchArticleList({
+            page: 1,
+
+        }));
     });
 
     const onViewChange = useCallback((view: ArticleView) => {
