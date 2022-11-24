@@ -8,8 +8,8 @@ import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page';
 import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
 import {
-    getArticlesPageError,
-    getArticlesPageIsLoading,
+    getArticlesPageError, getArticlesPageHasMore,
+    getArticlesPageIsLoading, getArticlesPageNumber,
     getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlePageSlice';
@@ -32,6 +32,17 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const page = useSelector(getArticlesPageNumber);
+    const hasMore = useSelector(getArticlesPageHasMore);
+    const onLoadNextPart = useCallback(() => {
+        if (hasMore && !isLoading) {
+            dispatch(articlesPageActions.setPage(page + 1));
+            dispatch(fetchArticleList({
+                page: page + 1,
+            }));
+        }
+    }, [dispatch, page, hasMore, isLoading]);
+
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState());
         dispatch(fetchArticleList({
@@ -46,7 +57,10 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames(cls.articlesPage, {}, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.articlesPage, {}, [className])}
+            >
                 <ArticleViewSelector view={view} onViewClick={onViewChange} className={cls.viewselect} />
                 <ArticleList
                     isLoading={isLoading}

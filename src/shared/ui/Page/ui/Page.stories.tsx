@@ -6,15 +6,17 @@ import {
 import { Page } from './Page';
 
 export default {
-    title: 'TEMPLATE/Page',
+    title: 'Shared/Page',
     component: Page,
     argTypes: {},
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Page> = () => (
-    <Page />
+const Template: ComponentStory<typeof Page> = (args) => (
+    <Page {...args} />
 );
 
 export const Main = Template.bind({});
-Main.args = {};
+Main.args = {
+    children: <div />,
+};
 Main.decorators = [ThemeDecorator(Theme.DARK)];
