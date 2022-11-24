@@ -21,14 +21,13 @@ export const useInfiniteScroll = ({ callback, wrapperRef, triggerRef }:UseInfini
         };
         const observer = new IntersectionObserver(([entry]) => {
             if (entry.isIntersecting) {
-                console.log('intersected');
                 callback?.();
             }
         }, options);
 
         observer.observe(triggerRef.current);
         return () => {
-            if (observer) {
+            if (observer && triggerElement) {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
                 observer.unobserve(triggerElement);
             }

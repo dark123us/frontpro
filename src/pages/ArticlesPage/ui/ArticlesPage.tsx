@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page';
+import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
 import {
     getArticlesPageError, getArticlesPageHasMore,
@@ -35,13 +36,8 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
     const page = useSelector(getArticlesPageNumber);
     const hasMore = useSelector(getArticlesPageHasMore);
     const onLoadNextPart = useCallback(() => {
-        if (hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticleList({
-                page: page + 1,
-            }));
-        }
-    }, [dispatch, page, hasMore, isLoading]);
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initState());
