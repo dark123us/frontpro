@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
+import { Page } from 'shared/ui/Page';
 import { AddCommentForm } from '../../../features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
@@ -58,7 +59,7 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                     {t('Back to list')}
                 </Button>
@@ -70,7 +71,7 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
                     isLoading={commentsIsLoading}
                     error={commentsError}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });

@@ -3,6 +3,7 @@ import { Spinner } from 'shared/ui/Spinner';
 import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
 import { Input } from 'shared/ui/Input/ui/Input';
+import { Page } from 'shared/ui/Page';
 // import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
@@ -23,7 +24,7 @@ const MainPage = () => {
     const [inputValue, onChangeInput] = useState('');
 
     return (
-        <div>
+        <Page>
             <h1>{t('Main')}</h1>
             {t('Main content')}
             <Spinner />
@@ -38,7 +39,7 @@ const MainPage = () => {
                 {inputValue}
             </div>
 
-        </div>
+        </Page>
     );
 };
 

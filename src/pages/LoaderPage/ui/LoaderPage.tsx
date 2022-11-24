@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
 import { Spinner } from 'shared/ui/Spinner';
+import { Page } from 'shared/ui/Page';
 import cls from './LoaderPage.module.scss';
 
 interface LoaderPageProps {
@@ -12,8 +13,8 @@ export const LoaderPage:FC<LoaderPageProps> = (props) => {
         className,
     } = props;
     return (
-        <div className={classNames(cls.loaderPage, {}, [className])}>
+        <Page className={classNames(cls.loaderPage, {}, [className])}>
             <Spinner />
-        </div>
+        </Page>
     );
 };

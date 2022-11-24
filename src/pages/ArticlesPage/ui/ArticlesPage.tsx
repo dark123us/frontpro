@@ -5,6 +5,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
+import { Page } from 'shared/ui/Page';
 import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
 import {
     getArticlesPageError,
@@ -45,14 +46,14 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articlesPage, {}, [className])}>
+            <Page className={classNames(cls.articlesPage, {}, [className])}>
                 <ArticleViewSelector view={view} onViewClick={onViewChange} className={cls.viewselect} />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };
