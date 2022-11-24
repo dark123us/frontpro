@@ -36,11 +36,10 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
 
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-            {viewTypes.map((viewType) => (
-                <Button
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onViewChange(viewType.view)}
-                >
+            {viewTypes.map((viewType, i) => (
+
+                // eslint-disable-next-line react/no-array-index-key
+                <Button key={i} theme={ButtonTheme.CLEAR} onClick={onViewChange(viewType.view)}>
                     <Icon
                         className={classNames(
                             '',
