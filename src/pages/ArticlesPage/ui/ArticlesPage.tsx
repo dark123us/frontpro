@@ -6,11 +6,13 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { Page } from 'shared/ui/Page';
-import { fetchNextArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
-    getArticlesPageError, getArticlesPageHasMore,
-    getArticlesPageIsLoading, getArticlesPageNumber,
+    getArticlesPageError,
+    getArticlesPageHasMore,
+    getArticlesPageIsLoading,
+    getArticlesPageNumber,
     getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slices/articlePageSlice';
@@ -35,16 +37,13 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
     const view = useSelector(getArticlesPageView);
     const page = useSelector(getArticlesPageNumber);
     const hasMore = useSelector(getArticlesPageHasMore);
+
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticleList({
-            page: 1,
-
-        }));
+        dispatch(initArticlesPage());
     });
 
     const onViewChange = useCallback((view: ArticleView) => {

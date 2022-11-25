@@ -23,7 +23,7 @@ export const StoreProvider: FC<StoreProviderProps> = (props) => {
     const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
-        navigate,
+        // navigate,
     );
 
     return (
