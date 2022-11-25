@@ -1,9 +1,16 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import {
     MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { scrollRestoreActions } from 'features/ScrollRestore';
+import { useLocation } from 'react-router-dom';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useSelector } from 'react-redux';
+import { getScrollRestorePosition } from 'features/ScrollRestore/model/selectors/scrollRestore';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -21,6 +28,9 @@ export const Page = (props: PageProps) => {
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const dispatch = useAppDispatch();
+    const { pathname } = useLocation();
+    const position = useSelector((state: StateSchema) => getScrollRestorePosition(state, pathname));
 
     useInfiniteScroll({
         wrapperRef,
@@ -28,9 +38,16 @@ export const Page = (props: PageProps) => {
         callback: onScrollEnd,
     });
 
-    const onScroll = (e: UIEvent<HTMLDivElement>) => {
-        console.log('scroll', e.currentTarget.scrollTop);
-    };
+    useInitialEffect(() => {
+        wrapperRef.current.scrollTop = position;
+    });
+
+    const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+        dispatch(scrollRestoreActions.setScrollPosition({
+            path: pathname,
+            position: e.currentTarget.scrollTop,
+        }));
+    }, 500);
 
     return (
         <section
