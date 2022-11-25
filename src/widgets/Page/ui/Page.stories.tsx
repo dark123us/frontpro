@@ -6,7 +6,7 @@ import {
 import { Page } from './Page';
 
 export default {
-    title: 'Shared/Page',
+    title: 'Widgets/Page',
     component: Page,
     argTypes: {},
 } as ComponentMeta<typeof Page>;

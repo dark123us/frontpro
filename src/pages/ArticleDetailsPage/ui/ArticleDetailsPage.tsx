@@ -11,7 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { AddCommentForm } from '../../../features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';

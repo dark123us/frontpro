@@ -4,8 +4,7 @@ import {
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User/model/slice/userSlice';
 import { $api } from 'shared/api/api';
-import { To } from 'react-router-dom';
-import { NavigateOptions } from 'react-router';
+import { scrollRestoreReducer } from 'features/ScrollRestore';
 import { createReducerManager } from './ReducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
@@ -18,6 +17,7 @@ export const createReduxStore = (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollRestore: scrollRestoreReducer,
     };
 
     const reducerManager = createReducerManager(rootRedusers);

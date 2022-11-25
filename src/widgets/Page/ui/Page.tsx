@@ -1,6 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { MutableRefObject, ReactNode, useRef } from 'react';
+import {
+    MutableRefObject, ReactNode, UIEvent, useRef,
+} from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import cls from './Page.module.scss';
 
@@ -26,10 +28,15 @@ export const Page = (props: PageProps) => {
         callback: onScrollEnd,
     });
 
+    const onScroll = (e: UIEvent<HTMLDivElement>) => {
+        console.log('scroll', e.currentTarget.scrollTop);
+    };
+
     return (
         <section
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
+            onScroll={onScroll}
         >
             {children}
             <div ref={triggerRef} />

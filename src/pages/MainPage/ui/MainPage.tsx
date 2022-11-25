@@ -3,7 +3,7 @@ import { Spinner } from 'shared/ui/Spinner';
 import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
 import { Input } from 'shared/ui/Input/ui/Input';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 // import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
