@@ -10,8 +10,10 @@ import {
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
 import { SortOrder } from 'shared/types';
+import { fetchArticleList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import {
-    getArticlesPageOrder,
+    getArticlesPageOrder, getArticlesPageSearch,
     getArticlesPageSort,
     getArticlesPageView,
 } from '../../../model/selectors/articlesPageSelectors';
@@ -30,20 +32,35 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const dispatch = useAppDispatch();
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
+    const search = useSelector(getArticlesPageSearch);
     const view = useSelector(getArticlesPageView);
+
+    const fetchData = useCallback(() => {
+        dispatch(fetchArticleList({ replace: true }));
+    }, [dispatch]);
+
+    const debounceFetch = useDebounce(fetchData, 500);
+
     const onViewChange = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
+        dispatch(articlesPageActions.setPage(1));
     }, [dispatch]);
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
     const onChangeSearch = useCallback((newSearch: string) => {
         dispatch(articlesPageActions.setSearch(newSearch));
-    }, [dispatch]);
+        dispatch(articlesPageActions.setPage(1));
+        debounceFetch();
+    }, [dispatch, debounceFetch]);
 
     return (
         <div className={classNames('', {}, [className])}>
@@ -63,6 +80,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
             <Card className={cls.search}>
                 <Input
                     placeholder={t('Search')}
+                    value={search}
                     onChange={onChangeSearch}
                 />
             </Card>
