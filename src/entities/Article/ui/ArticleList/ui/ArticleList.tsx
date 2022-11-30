@@ -43,7 +43,7 @@ export const ArticleList = (props: ArticleListProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <div className={classNames('', {}, [className, cls[view]])}>
             {articles.length > 0 ? articles.map((article) => renderArticle(article)) : null }
             {isLoading && getSkeleton(view)}
         </div>

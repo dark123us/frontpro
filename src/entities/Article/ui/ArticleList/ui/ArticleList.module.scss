@@ -1,16 +1,7 @@
-.ArticleList {
-
-
-}
-
-
 .tile {
   display: flex;
   flex-wrap: wrap;
-  .card {
-    margin-bottom: 30px;
-    margin-right: 30px;
-  }
+  gap: 30px;
 }
 
 .list {

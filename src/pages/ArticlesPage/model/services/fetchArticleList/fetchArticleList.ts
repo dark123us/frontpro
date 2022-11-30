@@ -34,7 +34,13 @@ export const fetchArticleList = createAsyncThunk<
             try {
                 const response = await extra.api.get<Article[]>(
                     RoutePath.articles,
-                    { params: { _expand: 'user', _limit: limit, _page: page } },
+                    {
+                        params: {
+                            _expand: 'user',
+                            _limit: limit,
+                            _page: page,
+                        },
+                    },
 
                 );
                 if (!response.data) {
