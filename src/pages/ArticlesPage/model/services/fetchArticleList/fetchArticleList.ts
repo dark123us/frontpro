@@ -8,6 +8,7 @@ import {
     getArticlesPageSort,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { useSelector } from 'react-redux';
+import { addQueryParams } from 'shared/lib/addQueryParams/addQueryParams';
 
 export enum Message {
     ERROR = 'error'
@@ -40,6 +41,9 @@ export const fetchArticleList = createAsyncThunk<
             const search = getArticlesPageSearch(getState());
 
             try {
+                addQueryParams({
+                    sort, order, search,
+                });
                 const response = await extra.api.get<Article[]>(
                     RoutePath.articles,
                     {

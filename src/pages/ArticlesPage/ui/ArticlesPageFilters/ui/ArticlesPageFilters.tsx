@@ -36,29 +36,32 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const view = useSelector(getArticlesPageView);
 
     const fetchData = useCallback(() => {
+        dispatch(articlesPageActions.setPage(1));
         dispatch(fetchArticleList({ replace: true }));
     }, [dispatch]);
 
     const debounceFetch = useDebounce(fetchData, 500);
 
-    const onViewChange = useCallback((view: ArticleView) => {
+    const onСhangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
         dispatch(articlesPageActions.setPage(1));
     }, [dispatch]);
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
-        dispatch(articlesPageActions.setPage(1));
+        // dispatch(articlesPageActions.setPage(1));
         fetchData();
     }, [dispatch, fetchData]);
+
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
-        dispatch(articlesPageActions.setPage(1));
+        // dispatch(articlesPageActions.setPage(1));
         fetchData();
     }, [dispatch, fetchData]);
+
     const onChangeSearch = useCallback((newSearch: string) => {
         dispatch(articlesPageActions.setSearch(newSearch));
-        dispatch(articlesPageActions.setPage(1));
+
         debounceFetch();
     }, [dispatch, debounceFetch]);
 
@@ -73,7 +76,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                 />
                 <ArticleViewSelector
                     view={view}
-                    onViewClick={onViewChange}
+                    onViewClick={onСhangeView}
                     className={cls.viewselect}
                 />
             </div>
