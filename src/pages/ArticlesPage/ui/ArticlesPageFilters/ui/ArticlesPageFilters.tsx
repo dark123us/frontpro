@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import {
     ArticleView,
     ArticleViewSelector, ArticleSortSelector, ArticleSortField,
@@ -12,6 +12,8 @@ import { Input } from 'shared/ui/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticleList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from 'shared/ui/Tabs';
+import { ArticleType } from 'entities/Article/model/types/article';
 import {
     getArticlesPageOrder, getArticlesPageSearch,
     getArticlesPageSort,
@@ -49,21 +51,28 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
 
     const onChangeOrder = useCallback((newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
-        // dispatch(articlesPageActions.setPage(1));
         fetchData();
     }, [dispatch, fetchData]);
 
     const onChangeSort = useCallback((newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
-        // dispatch(articlesPageActions.setPage(1));
         fetchData();
     }, [dispatch, fetchData]);
 
     const onChangeSearch = useCallback((newSearch: string) => {
         dispatch(articlesPageActions.setSearch(newSearch));
-
         debounceFetch();
     }, [dispatch, debounceFetch]);
+
+    const tabs = useMemo<TabItem[]>(
+        () => [
+            { value: ArticleType.ALL, content: t('All') },
+            { value: ArticleType.IT, content: t('IT') },
+            { value: ArticleType.ECONOMICS, content: t('Economics') },
+            { value: ArticleType.SCIENCE, content: t('Scince') },
+        ],
+        [t],
+    );
 
     return (
         <div className={classNames('', {}, [className])}>
@@ -87,6 +96,11 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                     onChange={onChangeSearch}
                 />
             </Card>
+            <Tabs
+                tabs={tabs}
+                value={}
+                onTabClick={}
+            />
         </div>
     );
 };

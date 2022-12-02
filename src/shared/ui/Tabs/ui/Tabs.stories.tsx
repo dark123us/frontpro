@@ -15,9 +15,8 @@ export default {
             { value: 'tab 2', content: <div>tab 2</div> },
             { value: 'tab 3', content: <div>tab 3</div> },
         ],
-        value: 'tab 1',
+        value: 'tab 2',
         onTabClick: action('onTabClick'),
-
     },
     argTypes: {},
 } as ComponentMeta<typeof Tabs>;
@@ -28,4 +27,8 @@ const Template: ComponentStory<typeof Tabs> = (args) => (
 
 export const Main = Template.bind({});
 Main.args = {};
-Main.decorators = [ThemeDecorator(Theme.DARK)];
+Main.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
