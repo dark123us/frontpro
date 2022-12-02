@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
-import {
-    getArticlesPageLimit, getArticlesPageNumber,
-    getArticlesPageOrder, getArticlesPageSearch,
-    getArticlesPageSort,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
-import { useSelector } from 'react-redux';
 import { addQueryParams } from 'shared/lib/addQueryParams/addQueryParams';
+import {
+    getArticlesPageLimit,
+    getArticlesPageNumber,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+} from '../../selectors/articlesPageSelectors';
 
 export enum Message {
     ERROR = 'error'
@@ -39,10 +41,11 @@ export const fetchArticleList = createAsyncThunk<
             const sort = getArticlesPageSort(getState());
             const order = getArticlesPageOrder(getState());
             const search = getArticlesPageSearch(getState());
+            const type = getArticlesPageType(getState());
 
             try {
                 addQueryParams({
-                    sort, order, search,
+                    sort, order, search, type,
                 });
                 const response = await extra.api.get<Article[]>(
                     RoutePath.articles,
@@ -54,7 +57,7 @@ export const fetchArticleList = createAsyncThunk<
                             _sort: sort,
                             _order: order,
                             q: search,
-
+                            type: type === ArticleType.ALL ? undefined : type,
                         },
                     },
 

@@ -33,6 +33,14 @@ export const ArticleList = (props: ArticleListProps) => {
     //     );
     // }
 
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames('', {}, [className, cls[view]])}>
+                <Text title={t('Article not found')} />
+            </div>
+        );
+    }
+
     const renderArticle = (article: Article) => (
         <ArticleListItem
             key={article.id}
