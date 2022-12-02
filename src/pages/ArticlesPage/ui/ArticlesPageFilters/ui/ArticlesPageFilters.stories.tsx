@@ -6,7 +6,7 @@ import {
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 
 export default {
-    title: 'TEMPLATE/ArticlesPageFilters',
+    title: 'Pages/Articles/ArticlesPageFilters',
     component: ArticlesPageFilters,
     argTypes: {},
 } as ComponentMeta<typeof ArticlesPageFilters>;

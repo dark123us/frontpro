@@ -5,7 +5,7 @@ import { ArticleView } from '../../../model/types/article';
 import { ArticleViewSelector } from './ArticleViewSelector';
 
 export default {
-    title: 'TEMPLATE/ArticleViewSelector',
+    title: 'entities/ArticleList/ArticleViewSelector',
     component: ArticleViewSelector,
     argTypes: {},
 } as ComponentMeta<typeof ArticleViewSelector>;

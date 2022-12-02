@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { Page } from 'widgets/Page';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
@@ -39,12 +40,14 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
     const page = useSelector(getArticlesPageNumber);
     const hasMore = useSelector(getArticlesPageHasMore);
 
+    const [searchParams] = useSearchParams();
+
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     const onViewChange = useCallback((view: ArticleView) => {

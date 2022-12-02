@@ -6,7 +6,7 @@ import {
 import { ArticleListItem } from './ArticleListItem';
 
 export default {
-    title: 'TEMPLATE/ArticleListItem',
+    title: 'entities/ArticleList/ArticleListItem',
     component: ArticleListItem,
     argTypes: {},
 } as ComponentMeta<typeof ArticleListItem>;
