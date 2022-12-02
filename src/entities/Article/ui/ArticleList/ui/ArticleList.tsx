@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ui/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text';
 import { ArticleListItem } from '../../ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../../model/types/article';
@@ -36,7 +37,7 @@ export const ArticleList = (props: ArticleListProps) => {
     if (!isLoading && !articles.length) {
         return (
             <div className={classNames('', {}, [className, cls[view]])}>
-                <Text title={t('Article not found')} />
+                <Text size={TextSize.L} title={t('Article not found')} />
             </div>
         );
     }
