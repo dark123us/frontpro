@@ -44,7 +44,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid'],
+            ignoreAttribute: ['data-testid', 'target', 'to'],
         }],
         'max-len': ['error', {
             code: 120,
@@ -56,6 +56,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'no-param-reassign': 'off',
         'no-undef': 'off',
+        'arrow-body-style': 'off',
     },
     globals: {
         __IS_DEV__: true,

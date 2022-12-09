@@ -7,9 +7,10 @@ import { Card } from 'shared/ui/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
-import { useCallback } from 'react';
+import { AnchorHTMLAttributes, HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
+import { AppLink } from 'shared/ui/AppLink';
 import {
     Article, ArticleBlockText, ArticleBlockType, ArticleView,
 } from '../../../model/types/article';
@@ -20,6 +21,7 @@ interface ArticleListItemProps {
     className?: string;
     article: Article
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
@@ -27,15 +29,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         className,
         article,
         view = ArticleView.TILE,
+        target,
     } = props;
     const { t } = useTranslation();
     const [isHover, bindHover] = useHover();
-
-    const navigate = useNavigate();
-    const onOpenArticle = useCallback(() => {
-        console.log(article);
-        navigate(RoutePath.articleDetails + article.id);
-    }, [article, navigate]);
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -47,8 +44,13 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
     if (view === ArticleView.TILE) {
         return (
-            <div {...bindHover} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card onClick={onOpenArticle}>
+            <AppLink
+                target={target}
+                to={RoutePath.articleDetails + article.id}
+                {...bindHover}
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
+                <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <img alt={article.title} src={article.img} className={cls.img} />
                         <Text text={article.createdAt} className={cls.date} />
@@ -60,7 +62,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                     </div>
                     <Text text={article.title} className={cls.title} />
                 </Card>
-            </div>
+            </AppLink>
         );
     }
 
@@ -69,8 +71,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleBlockText;
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <Card onClick={onOpenArticle}>
+            <AppLink
+                target={target}
+                to={RoutePath.articleDetails + article.id}
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            >
+                <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
                         <Text text={article.user.username} className={cls.username} />
@@ -83,14 +89,16 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <ArticleBlockTextComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-                            {t('Read next')}
-                        </Button>
+                        <AppLink to={RoutePath.articleDetails + article.id}>
+                            <Button theme={ButtonTheme.OUTLINE}>
+                                {t('Read next')}
+                            </Button>
+                        </AppLink>
                         {views}
                     </div>
 
                 </Card>
-            </div>
+            </AppLink>
         );
     }
 

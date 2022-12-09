@@ -14,23 +14,22 @@ import { RoutePath } from 'app/providers/router/config/routeConfig';
 import { Page } from 'widgets/Page';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
 import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
-import {
-    articleDetailsPageRecommendationsReducer, getArticleRecomendateions,
-} from '../model/slices/articleDetailsPageRecommendationsSlice';
+import { getArticleRecomendateions } from '../model/slices/articleDetailsPageRecommendationsSlice';
 import { AddCommentForm } from '../../../features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
+import { getArticleComments } from '../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import { articleDetailsPageReducer } from '../model/slices';
 
 interface ArticleDetailsPageProps {
     className?: string
 }
 
 const reducers: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleDetailsRecommendations: articleDetailsPageRecommendationsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
+
 };
 
 export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
@@ -82,6 +81,7 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
                     className={cls.recommendations}
                     articles={recommendations}
                     isLoading={recommendationsIsLoading}
+                    target="_blank"
                 />
                 <Text
                     size={TextSize.L}
