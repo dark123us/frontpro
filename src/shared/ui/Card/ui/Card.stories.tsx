@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from 'shared/config/Storybook/Decorators/ThemeDecorator';
-import { Text } from 'shared/ui/Text';
+import { Text } from '../../Text';
 import { Card } from './Card';
 
 export default {

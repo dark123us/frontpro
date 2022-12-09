@@ -6,7 +6,7 @@ import {
 import { Modal } from './Modal';
 
 export default {
-    title: 'Shared/Modal',
+    title: 'Widgets/Modal',
     component: Modal,
     argTypes: {},
     args: {
