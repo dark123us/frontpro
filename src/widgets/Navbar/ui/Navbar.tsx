@@ -7,6 +7,7 @@ import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
+import { Text, TextTheme } from 'shared/ui/Text';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -59,8 +60,22 @@ export const Navbar = memo((props:NavbarProps) => {
     );
 
     return (
-        <div className={classNames(cls.navbar, {}, [className])}>
+        <header className={classNames(cls.navbar, {}, [className])}>
+            <div className={cls.title}>
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                    title={t('FrontPro')}
+                />
+            </div>
             <div className={cls.links}>
+                <AppLink
+                    theme={AppLinkTheme.INVERTED}
+                    to={RoutePath[AppRoutes.ARTICLE_CREATE]}
+                    className={cls.createBtn}
+                >
+                    {t('Create article')}
+                </AppLink>
                 <AppLink
                     theme={AppLinkTheme.INVERTED}
                     to={RoutePath[AppRoutes.MAIN]}
@@ -76,7 +91,7 @@ export const Navbar = memo((props:NavbarProps) => {
                 </AppLink>
                 {authButton}
             </div>
-        </div>
+        </header>
     );
 });
 
