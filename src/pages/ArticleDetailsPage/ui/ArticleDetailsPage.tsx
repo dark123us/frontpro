@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
 import { Page } from 'widgets/Page';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
 import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
 import { getArticleRecomendateions } from '../model/slices/articleDetailsPageRecommendationsSlice';
@@ -51,11 +52,6 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticleRecommendations());
     });
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     if (!id) {
         return (
@@ -68,9 +64,8 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Back to list')}
-                </Button>
+                <ArticleDetailsPageHeader />
+
                 <ArticleDetails articleId={id} />
                 <Text
                     size={TextSize.L}
