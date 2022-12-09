@@ -31,7 +31,6 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "storybook:server": "start-storybook -p 6006 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook",
-
     "test:all": "npm run build:prod && npm run lint:ts && npm run lint:scss && npm run test:unit && npm run storybook:build && npm run test:ui"
   },
   "keywords": [],
@@ -59,6 +58,7 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-virtualized": "^9.21.21",
     "@types/webpack": "^5.28.0",
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
@@ -66,8 +66,8 @@
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
-    "copy-webpack-plugin": "^10.2.4",
     "concurrently": "^7.0.0",
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -111,7 +111,12 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-virtualized": "^9.22.3"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "loki": {
     "fetchFailIgnore": ".*",

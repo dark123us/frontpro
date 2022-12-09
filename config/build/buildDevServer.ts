@@ -13,6 +13,10 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
                 target: 'http://localhost:8000',
                 pathRewrite: { '^/api': '/' },
             },
+            '/locales': {
+                target: 'http://localhost:5000',
+                pathRewrite: { '^/locales': '/public/locales' },
+            },
         },
     };
 }
