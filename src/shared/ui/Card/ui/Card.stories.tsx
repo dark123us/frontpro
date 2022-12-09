@@ -1,8 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from 'shared/config/Storybook/Decorators/ThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Text } from '../../Text';
 import { Card } from './Card';
 
