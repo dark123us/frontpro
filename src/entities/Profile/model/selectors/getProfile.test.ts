@@ -9,8 +9,8 @@ import {
     getProfileIsLoading,
     getProfileReadonly,
     getProfileValidateErrors,
-} from 'entities/Profile';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+} from './getProfile';
+import { ValidateProfileError } from '../types/profile';
 
 const data = {
     username: 'admin',

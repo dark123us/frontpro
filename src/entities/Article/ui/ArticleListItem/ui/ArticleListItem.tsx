@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text';
 import { Icon } from 'shared/ui/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Card } from 'shared/ui/Card';
+import { Card } from 'widgets/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
