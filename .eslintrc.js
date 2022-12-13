@@ -9,6 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'frontpro-eslint-plugin',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
