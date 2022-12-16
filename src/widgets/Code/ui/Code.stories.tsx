@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Code } from './Code';
 
 export default {
-    title: 'Shared/Code',
+    title: 'Widgets/Code',
     component: Code,
     argTypes: {},
     args: {

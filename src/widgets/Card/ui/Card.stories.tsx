@@ -7,7 +7,7 @@ import { Text } from 'shared/ui/Text';
 import { Card } from './Card';
 
 export default {
-    title: 'Shared/Card',
+    title: 'Widgets/Card',
     component: Card,
     argTypes: {},
     args: {

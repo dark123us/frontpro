@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
 
 export default {
-    title: 'Shared/Tabs',
+    title: 'Widgets/Tabs',
     component: Tabs,
     args: {
         tabs: [
