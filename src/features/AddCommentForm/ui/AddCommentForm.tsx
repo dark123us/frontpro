@@ -7,6 +7,7 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 
+import { HStack } from 'shared/ui/Stack';
 import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,
@@ -43,7 +44,7 @@ export const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <HStack justify="between" max className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
                     className={cls.input}
                     placeholder={t('add comment')}
@@ -57,7 +58,7 @@ export const AddCommentForm = (props: AddCommentFormProps) => {
                     {t('send')}
                 </Button>
 
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 };

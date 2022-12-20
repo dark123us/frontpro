@@ -7,6 +7,7 @@ import { Avatar } from 'shared/ui/Avatar/';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -46,23 +47,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+            <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
                 <Spinner />
-            </div>
+            </HStack>
 
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+            <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.error])}>
                 <Text
                     title={t('An error occurred')}
                     text={error}
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -71,13 +72,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.profileCard, mods, [className])}>
+        <VStack gap="16" max className={classNames(cls.profileCard, mods, [className])}>
             {
                 data?.avatar
                 && (
-                    <div className={cls.avatarWrapper}>
+                    <HStack justify="center" className={cls.avatarWrapper}>
                         <Avatar src={data?.avatar} />
-                    </div>
+                    </HStack>
                 )
             }
             <Input
@@ -136,6 +137,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 readonly={readonly}
             />
 
-        </div>
+        </VStack>
     );
 };

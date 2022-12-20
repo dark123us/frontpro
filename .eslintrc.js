@@ -46,7 +46,15 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'target', 'to'],
+            ignoreAttribute: [
+                'data-testid',
+                'target',
+                'to',
+                'direction',
+                'align',
+                'justify',
+                'gap',
+            ],
         }],
         'max-len': ['error', {
             code: 120,
