@@ -37,6 +37,11 @@ OnlyTitle.args = {
     text: '',
 };
 
+export const FontS = Template.bind({});
+FontS.args = {
+    size: TextSize.S,
+};
+
 export const FontM = Template.bind({});
 FontM.args = {
     size: TextSize.M,
