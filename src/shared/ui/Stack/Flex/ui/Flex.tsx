@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    CSSProperties, DetailedHTMLProps, HTMLAttributes, memo, ReactNode,
+    DetailedHTMLProps, HTMLAttributes, memo, ReactNode,
 } from 'react';
 import cls from './Flex.module.scss';
 
@@ -43,11 +43,10 @@ export interface FlexProps extends DivProps{
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: FlexGap;
-    style?: CSSProperties,
     max?: boolean,
 }
 
-export const Flex = memo((props: FlexProps) => {
+export const Flex = (props: FlexProps) => {
     const {
         className,
         children,
@@ -76,4 +75,4 @@ export const Flex = memo((props: FlexProps) => {
             {children}
         </div>
     );
-});
+};

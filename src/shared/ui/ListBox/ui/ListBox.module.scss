@@ -17,7 +17,7 @@
   z-index: 10000;
   border-radius: 12px;
   box-shadow: 4px 4px 8px var(--bg-listbox);
-  width: 100%;
+  min-width: 100%;
 }
 
 .item {

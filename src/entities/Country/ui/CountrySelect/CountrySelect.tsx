@@ -2,6 +2,7 @@ import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select';
+import { ListBox } from 'shared/ui/ListBox';
 import { Country } from '../../model/types/country';
 
 const options = [
@@ -25,14 +26,26 @@ export const CountrySelect: FC<CountrySelectProps> = (props) => {
     const onChangeHandler = useCallback((value:string) => {
         onChange?.(value as Country);
     }, [onChange]);
+
     return (
-        <Select
-            className={classNames('', {}, [className])}
-            label={t('Enter currency')}
-            options={options}
-            value={value}
-            onChange={onChangeHandler}
+        <ListBox
             readonly={readonly}
+            className={classNames('', {}, [className])}
+            value={value}
+            items={options}
+            defaultValue={t('select country')}
+            onChange={onChangeHandler}
         />
     );
+
+    // return (
+    //     <Select
+    //         className={classNames('', {}, [className])}
+    //         label={t('Enter currency')}
+    //         options={options}
+    //         value={value}
+    //         onChange={onChangeHandler}
+    //         readonly={readonly}
+    //     />
+    // );
 };

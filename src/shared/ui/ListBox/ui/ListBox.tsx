@@ -13,13 +13,16 @@ export interface ListBoxItem {
     disabled?: boolean
 }
 
+type DropDownDirection = 'top' | 'bottom'
+
 interface ListBoxProps {
     items?: ListBoxItem[]
     className?: string;
     value?: string
     defaultValue?: string
     onChange: <T extends string>(value: T) => void
-
+    readonly?: boolean
+    dropDown?: DropDownDirection
 }
 
 export const ListBox = memo((props: ListBoxProps) => {
@@ -29,6 +32,7 @@ export const ListBox = memo((props: ListBoxProps) => {
         defaultValue,
         value,
         onChange,
+        readonly,
     } = props;
 
     const [selected, setSelected] = useState<ListBoxItem>();
@@ -37,16 +41,23 @@ export const ListBox = memo((props: ListBoxProps) => {
     return (
         <HListBox
             as="div"
+            disabled={readonly}
             className={classNames(cls.ListBox, {}, [className])}
             value={value}
             onChange={onChange}
         >
-            <HListBox.Button className={cls.trigger}>
-                <Button>
+            <HListBox.Button
+                disabled={readonly}
+                className={cls.trigger}
+            >
+                <Button disabled={readonly}>
+
                     {value ?? defaultValue}
                 </Button>
             </HListBox.Button>
-            <HListBox.Options className={cls.options}>
+            <HListBox.Options
+                className={classNames('', {}, [cls.options])}
+            >
                 {items?.map((item) => (
                     <HListBox.Option
                         as={Fragment}
@@ -63,6 +74,7 @@ export const ListBox = memo((props: ListBoxProps) => {
                                 })}
                             >
                                 {selected && '!!!'}
+                                {item.content}
                             </li>
                         )}
                     </HListBox.Option>
