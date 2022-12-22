@@ -55,6 +55,7 @@ module.exports = {
                 'justify',
                 'gap',
                 'role',
+                'as',
             ],
         }],
         'max-len': ['error', {
