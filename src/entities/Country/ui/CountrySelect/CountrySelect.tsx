@@ -35,7 +35,7 @@ export const CountrySelect: FC<CountrySelectProps> = (props) => {
             items={options}
             defaultValue={t('select country')}
             onChange={onChangeHandler}
-            direction="top"
+            direction="top right"
             label={t('Enter country')}
         />
     );

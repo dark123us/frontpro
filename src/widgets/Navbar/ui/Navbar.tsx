@@ -8,6 +8,8 @@ import { LoginModal } from 'features/AuthByUsername';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text';
+import { DropDown } from 'shared/ui/DropDown';
+import { Avatar } from 'shared/ui/Avatar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -35,12 +37,16 @@ export const Navbar = memo((props:NavbarProps) => {
     }, [dispatch]);
 
     const authButton = (undefined !== authData) ? (
-        <Button
-            theme={ButtonTheme.CLEAR_INVERTED}
-            onClick={onLogout}
-        >
-            {t('Logout')}
-        </Button>
+        <DropDown
+            className={cls.dropdown}
+            trigger={<Avatar size={30} src={authData?.avatar} />}
+            direction="bottom left"
+            items={[
+                { content: t('Profile'), href: RoutePath.profile + authData.id },
+                { content: t('Logout'), onClick: onLogout },
+            ]}
+        />
+
     ) : (
         <div>
             <Button
@@ -89,8 +95,9 @@ export const Navbar = memo((props:NavbarProps) => {
                 >
                     {t('About')}
                 </AppLink>
-                {authButton}
+
             </div>
+            {authButton}
         </header>
     );
 });
