@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text, TextSize } from 'shared/ui/Text';
 import { CommentList } from 'entities/Comment';
@@ -11,10 +11,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'widgets/Page';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
-import { getArticleRecommendationsIsLoading } from '../model/selectors/recommendations';
-import { getArticleRecomendateions } from '../model/slices/articleDetailsPageRecommendationsSlice';
 import { AddCommentForm } from '../../../features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
@@ -38,9 +36,7 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
     const { id } = useParams<{id: string}>();
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
-    const recommendations = useSelector(getArticleRecomendateions.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
 
     const onSendComment = useCallback((text:string) => {
@@ -49,7 +45,6 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-        dispatch(fetchArticleRecommendations());
     });
 
     if (!id) {
@@ -66,17 +61,7 @@ export const ArticleDetailsPage = memo((props:ArticleDetailsPageProps) => {
                 <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails articleId={id} />
-                    <Text
-                        size={TextSize.L}
-                        className={cls.recommendationsTitle}
-                        title={t('Recommendations')}
-                    />
-                    <ArticleList
-                        className={cls.recommendations}
-                        articles={recommendations}
-                        isLoading={recommendationsIsLoading}
-                        target="_blank"
-                    />
+                    <ArticleRecommendationsList />
                     <Text
                         size={TextSize.L}
                         className={cls.commentTitle}
