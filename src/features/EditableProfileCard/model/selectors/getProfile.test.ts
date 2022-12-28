@@ -1,6 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ValidateProfileError } from '../types/editableProfileCardSchema';
 import {
     getProfileData,
     getProfileError,
@@ -10,7 +11,6 @@ import {
     getProfileReadonly,
     getProfileValidateErrors,
 } from './getProfile';
-import { ValidateProfileError } from '../types/profile';
 
 const data = {
     username: 'admin',
