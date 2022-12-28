@@ -5,7 +5,7 @@ import { EditableProfileCard } from 'features/EditableProfileCard';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { EditableProfileCardPageHeader } from 'features/EditableProfileCard/ui/EditableProfileCardPageHeader';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
@@ -26,7 +26,7 @@ export const ProfilePage = (props: ProfilePageProps) => {
     return (
         <Page className={classNames('', {}, [className, cls.profileCard])}>
             <VStack gap="16" max>
-                <ProfilePageHeader />
+                <EditableProfileCardPageHeader />
                 <EditableProfileCard id={id} />
             </VStack>
         </Page>

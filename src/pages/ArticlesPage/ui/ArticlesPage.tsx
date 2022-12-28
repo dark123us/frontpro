@@ -43,7 +43,7 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
                 className={classNames(cls.articlesPage, {}, [className])}
             >
                 <ArticlesPageFilters />
-                <ArticleInfiniteList />
+                <ArticleInfiniteList className={cls.list} />
 
             </Page>
         </DynamicModuleLoader>

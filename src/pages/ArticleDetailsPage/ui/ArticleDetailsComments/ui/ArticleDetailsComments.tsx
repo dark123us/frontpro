@@ -8,6 +8,7 @@ import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../../model/selectors/comments';
@@ -38,7 +39,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     }, [dispatch]);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <VStack gap="16" max className={classNames('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 title={t('Comments')}
@@ -49,6 +50,6 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
                 isLoading={commentsIsLoading}
                 error={commentsError}
             />
-        </div>
+        </VStack>
     );
 });

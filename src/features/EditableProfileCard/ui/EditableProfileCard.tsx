@@ -9,8 +9,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from 'shared/ui/Stack';
 import { ValidateProfileError } from '../model/types/editableProfileCardSchema';
-import cls from './EditableProfileCard.module.scss';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import {
     getProfileError,
@@ -84,7 +84,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.EditableProfileCard, {}, [className])}>
+            <VStack gap="8" max className={classNames('', {}, [className])}>
                 {(validateErrors && validateErrors.length > 0) && validateErrors.map((err) => (
                     <Text
                         key={err}
@@ -106,7 +106,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });
