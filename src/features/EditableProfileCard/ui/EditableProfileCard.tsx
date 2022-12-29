@@ -10,6 +10,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { ProfileCard } from 'entities/Profile';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from 'shared/ui/Stack';
+import { EditableProfileCardPageHeader } from './EditableProfileCardPageHeader';
 import { ValidateProfileError } from '../model/types/editableProfileCardSchema';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import {
@@ -93,6 +94,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                         data-testid="EditableProfileCard.Error"
                     />
                 ))}
+                <EditableProfileCardPageHeader />
                 <ProfileCard
                     data={dataForm}
                     isLoading={isLoading}
