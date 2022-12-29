@@ -19,15 +19,6 @@ export enum TextSize {
     L = 'size_l',
 }
 
-interface TextProps{
-    className?: string;
-    title?: string;
-    text?: string;
-    theme?: TextTheme;
-    align?: TextAlign;
-    size?: TextSize;
-}
-
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4'
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
@@ -37,6 +28,16 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
 
 };
 
+interface TextProps{
+    className?: string;
+    title?: string;
+    text?: string;
+    theme?: TextTheme;
+    align?: TextAlign;
+    size?: TextSize;
+    'data-testid'? : string;
+}
+
 export const Text = (props: TextProps) => {
     const {
         className,
@@ -45,6 +46,7 @@ export const Text = (props: TextProps) => {
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
+        'data-testid': dataTestId = '',
         ...otherProps
     } = props;
 
@@ -63,8 +65,22 @@ export const Text = (props: TextProps) => {
             )}
             {...otherProps}
         >
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && (
+                <HeaderTag
+                    className={cls.title}
+                    data-testid={`${dataTestId}.Header`}
+                >
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <p
+                    className={cls.text}
+                    data-testid={`${dataTestId}.Paragraph`}
+                >
+                    {text}
+                </p>
+            )}
         </div>
     );
 };
