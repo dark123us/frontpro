@@ -38,15 +38,4 @@ export const CurrencySelect = memo((props:CurrencySelectProps) => {
             label={t('Enter currency')}
         />
     );
-
-    // return (
-    //     <Select
-    //         className={classNames('', {}, [className])}
-    //         label={t('Enter currency')}
-    //         options={options}
-    //         value={value}
-    //         onChange={onChangeHandler}
-    //         readonly={readonly}
-    //     />
-    // );
 });
