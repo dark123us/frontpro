@@ -3,7 +3,7 @@
     padding-left: 16px;
 
     height: calc(100vh - var(--navbar-height));
-    min-width: var(--sidebar-width);
+    width: var(--sidebar-width);
     transition: width ease-out 0.3s;
     background: var(--inverted-bg-color);
     position: relative;
@@ -26,6 +26,7 @@
     position: absolute;
     right: -32px;
     bottom: 32px;
+    z-index: 10000;
 }
 
 .items {
