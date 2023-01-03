@@ -39,7 +39,6 @@ export const Navbar = memo((props:NavbarProps) => {
     }, [setIsAuthModal]);
 
     const onLogout = useCallback(() => {
-        console.log('onLogout');
         dispatch(userActions.logout());
     }, [dispatch]);
 
@@ -51,9 +50,9 @@ export const Navbar = memo((props:NavbarProps) => {
             trigger={<Avatar size={30} src={authData?.avatar} />}
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable? [{
-                     content: t('Admin'), href: RoutePath.adminPanel ,
-                }]),
+                ...(isAdminPanelAvailable ? [{
+                    content: t('Admin'), href: RoutePath.adminPanel,
+                }] : []),
 
                 { content: t('Profile'), href: RoutePath.profile + authData.id },
                 { content: t('Logout'), onClick: onLogout },
