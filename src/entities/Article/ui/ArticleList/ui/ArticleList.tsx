@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text, TextSize } from 'shared/ui/Text';
 import { HTMLAttributeAnchorTarget } from 'react';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ui/ArticleListItemSkeleton';
 import { ArticleListItem } from '../../ArticleListItem';
 import cls from './ArticleList.module.scss';
@@ -54,6 +55,14 @@ export const ArticleList = (props: ArticleListProps) => {
             className={cls.card}
         />
     );
+    if (view === ArticleView.LIST) {
+        return (
+            <VStack max gap="8" className={classNames('', {}, [className, cls[view]])}>
+                {articles.length > 0 ? articles.map((article) => renderArticle(article)) : null }
+                {isLoading && getSkeleton(view)}
+            </VStack>
+        );
+    }
 
     return (
         <div className={classNames('', {}, [className, cls[view]])}>
