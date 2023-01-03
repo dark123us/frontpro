@@ -48,18 +48,21 @@ export const DropDown = (props: DropDownProps) => {
             <Menu.Items
                 className={classNames('', {}, optionsClasses)}
             >
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = ({ active }: {active:boolean}) => (
                         <button
                             type="button"
                             className={classNames(cls.item, { [cls.active]: active }, [])}
+                            onClick={item.onClick}
                         >
                             {item.content}
                         </button>
                     );
+                    const key = item.content?.toString() ?? index;
                     if (item.href) {
                         return (
                             <Menu.Item
+                                key={key}
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
@@ -70,6 +73,7 @@ export const DropDown = (props: DropDownProps) => {
                     }
                     return (
                         <Menu.Item
+                            key={key}
                             as={Fragment}
                             disabled={item.disabled}
                         >

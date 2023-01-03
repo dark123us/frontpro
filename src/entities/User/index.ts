@@ -17,4 +17,4 @@ export {
     UserRole,
 } from './model/types/user';
 
-export { isUserManager, isUserAdmin } from './model/selectors/roleSelectors';
+export { isUserManager, isUserAdmin, getUserRoles } from './model/selectors/roleSelectors';
