@@ -1,9 +1,9 @@
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { componentRender, componentRenderOptions } from 'shared/lib/tests/componentRender/componentRender';
 import { Profile } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import userEvent from '@testing-library/user-event';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { $api } from 'shared/api/api';
 import { profilerReducer } from '../model/slices/profileSlices';
@@ -20,7 +20,7 @@ const profile: Profile = {
     username: 'admin123',
 };
 
-const options: ReactNode = {
+const options: componentRenderOptions = {
     initialState: {
         profile: {
             readonly: true,
@@ -28,7 +28,7 @@ const options: ReactNode = {
             form: profile,
         },
         user: {
-            authData: { id: 1, username: 'admin123' },
+            authData: { id: '1', username: 'admin123' },
         },
     },
     asyncReducers: {
