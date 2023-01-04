@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { Suspense } from 'react';
 import 'shared/config/i18n/i18n';
-import ErrorBoundary from 'app/providers/ErrorBoundary/ui/ErrorBoundary';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary/';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import 'app/styles/index.scss';
 import { createRoot } from 'react-dom/client';
