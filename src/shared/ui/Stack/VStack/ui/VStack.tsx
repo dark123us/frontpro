@@ -1,5 +1,5 @@
-import {memo} from 'react';
-import {Flex, FlexProps} from '../../Flex';
+import { memo } from 'react';
+import { Flex, FlexProps } from '../../Flex';
 
 type VStackProps = Omit<FlexProps, 'direction'>
 

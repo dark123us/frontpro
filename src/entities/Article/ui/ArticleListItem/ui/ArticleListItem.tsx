@@ -7,13 +7,11 @@ import { Card } from 'widgets/Card';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
-import { AnchorHTMLAttributes, HTMLAttributeAnchorTarget, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { HTMLAttributeAnchorTarget } from 'react';
 import { RoutePath } from 'app/providers/router/config/routeConfig';
 import { AppLink } from 'shared/ui/AppLink';
-import {
-    Article, ArticleBlockText, ArticleBlockType, ArticleView,
-} from '../../../model/types/article';
+import { ArticleBlockType, ArticleView } from '../../../model/consts/article';
+import { Article, ArticleBlockText } from '../../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleBlockTextComponent } from '../../ArticleBlockTextComponent/ArticleBlockTextComponent';
 

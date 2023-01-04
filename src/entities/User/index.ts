@@ -11,10 +11,11 @@ export {
     userReducer,
 } from './model/slice/userSlice';
 
-export {
+export type {
     UserSchema,
     User,
-    UserRole,
+
 } from './model/types/user';
 
 export { isUserManager, isUserAdmin, getUserRoles } from './model/selectors/roleSelectors';
+export { UserRole } from './model/consts/userrole';

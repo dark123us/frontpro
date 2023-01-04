@@ -11,7 +11,8 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlockType } from '../../model/consts/article';
+import { ArticleBlock } from '../../model/types/article';
 import { articleDetailsReducer } from '../../model/slices/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
