@@ -25,7 +25,20 @@ export default {
     component: ArticleRecommendationsList,
     args: {},
     argTypes: {},
-    decorators: [withMock, StoreDecorator({})],
+    decorators: [StoreDecorator({}), withMock],
+    parameters: {
+        mockData: [{
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' },
+            ],
+
+        }],
+    },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
@@ -35,16 +48,3 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
 export const Main = Template.bind({});
 Main.args = {};
 Main.decorators = [ThemeDecorator(Theme.DARK)];
-Main.parameters = {
-    mockData: [{
-        url: `${__API__}/articles?_limit=3`,
-        method: 'GET',
-        status: 200,
-        response: [
-            { ...article, id: '1' },
-            { ...article, id: '2' },
-            { ...article, id: '3' },
-        ],
-
-    }],
-};
