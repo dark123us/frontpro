@@ -26,7 +26,7 @@ export const parameters = {
     },
 };
 
-addDecorator(StyleDecorator);
+// addDecorator(StyleDecorator);
 addDecorator(SuspenseDecorator);
 // addDecorator(TranslationDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));

@@ -15,6 +15,9 @@ function App() {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
     const userMounted = useSelector(getUserMounted);
+
+    console.log('mounted');
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar />

@@ -17,11 +17,11 @@ export const ProfilePage = (props: ProfilePageProps) => {
     } = props;
     const { t } = useTranslation('profile');
     const { id } = useParams<{id: string}>();
-    if (!id) {
-        return (
-            <Text text={t('not found article')} />
-        );
-    }
+    // if (!id) {
+    //     return (
+    //         <Text text={t('not found article')} />
+    //     );
+    // }
     return (
         <Page className={classNames('', {}, [className, cls.profileCard])}>
             <VStack gap="16" max>

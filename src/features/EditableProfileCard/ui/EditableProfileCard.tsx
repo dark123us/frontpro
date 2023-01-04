@@ -25,7 +25,7 @@ import { profileActions, profilerReducer } from '../model/slices/profileSlices';
 interface EditableProfileCardProps {
     className?: string;
     children?: ReactNode;
-    id: string
+    id?: string
 }
 
 const reducers: ReducersList = {
@@ -42,7 +42,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData(id));
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const dataForm = useSelector(getProfileForm);

@@ -37,7 +37,7 @@ Main.args = {};
 Main.decorators = [ThemeDecorator(Theme.DARK)];
 Main.parameters = {
     mockData: [{
-        url: '',
+        url: `${__API__}/articles?_limit=3`,
         method: 'GET',
         status: 200,
         response: [

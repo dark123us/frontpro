@@ -25,6 +25,7 @@ export default {
     component: ProfilePage,
     argTypes: {},
     args: {},
+    decorators: [StoreDecorator({ profile: { form } })],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => (
@@ -33,11 +34,9 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({ profile: { form } })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
     ThemeDecorator(Theme.DARK),
-    StoreDecorator({ profile: { form } }),
 ];
