@@ -1,7 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, ReactNode } from 'react';
+import { Popover } from '@headlessui/react';
 import cls from './Popups.module.scss';
+import popupCls from '../styles/styles.module.scss';
 
 interface PopupsProps {
     className?: string;
@@ -15,8 +17,8 @@ export const Popups = memo((props: PopupsProps) => {
     } = props;
     const { t } = useTranslation();
     return (
-        <div className={classNames(cls.Popups, {}, [className])}>
+        <Popover className={classNames(cls.Popups, {}, [className])}>
             {children}
-        </div>
+        </Popover>
     );
 });

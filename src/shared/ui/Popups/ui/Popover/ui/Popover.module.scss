@@ -1,0 +1,11 @@
+.Popover {
+  display: flex;
+}
+
+.panel {
+  background: var(--bg-dropdown);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 8px;
+
+}

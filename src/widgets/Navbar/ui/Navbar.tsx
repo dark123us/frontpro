@@ -15,6 +15,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { Icon } from 'shared/ui/Icon';
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+import { Popover } from 'shared/ui/Popups';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -48,9 +49,16 @@ export const Navbar = memo((props:NavbarProps) => {
 
     const authButton = (undefined !== authData) ? (
         <HStack gap="16" className={cls.actions}>
-            <Button theme={ButtonTheme.CLEAR}>
-                <Icon Svg={NotificationIcon} inverted />
-            </Button>
+            <Popover trigger={(
+                <Button theme={ButtonTheme.CLEAR}>
+                    <Icon Svg={NotificationIcon} inverted />
+                </Button>
+            )}
+
+            >
+                {t('sadf')}
+            </Popover>
+
             <DropDown
                 className={cls.dropdown}
                 trigger={<Avatar size={30} src={authData?.avatar} />}

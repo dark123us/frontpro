@@ -5,6 +5,8 @@ import { Menu } from '@headlessui/react';
 import { DropDownDirection } from 'shared/types/ui';
 import { AppLink } from '../../../../AppLink';
 import cls from './DropDown.module.scss';
+import popupCls from '../../../styles/styles.module.scss';
+import { mapDirectionClass } from '../../../consts/const';
 
 export interface DropDownItems {
     disabled?: boolean
@@ -12,13 +14,6 @@ export interface DropDownItems {
     onClick?: () => void
     href?: string
 }
-
-const mapDirection: Record<DropDownDirection, string> = {
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-    'bottom right': cls.optionsBottomRight,
-    'bottom left': cls.optionsBottomLeft,
-};
 
 interface DropDownProps {
     className?: string;
@@ -35,14 +30,14 @@ export const DropDown = (props: DropDownProps) => {
         direction = 'top right',
     } = props;
     const { t } = useTranslation();
-    const optionsClasses = [cls.menu, mapDirection[direction]];
+    const optionsClasses = [cls.menu, mapDirectionClass[direction]];
     return (
         <Menu
             as="div"
-            className={classNames(cls.DropDown, {}, [className])}
+            className={classNames(cls.DropDown, {}, [className, popupCls.popup])}
         >
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Menu.Button className={cls.btn}>
+            <Menu.Button className={popupCls.trigger}>
                 {trigger}
             </Menu.Button>
             <Menu.Items
@@ -52,7 +47,7 @@ export const DropDown = (props: DropDownProps) => {
                     const content = ({ active }: {active:boolean}) => (
                         <button
                             type="button"
-                            className={classNames(cls.item, { [cls.active]: active }, [])}
+                            className={classNames(cls.item, { [popupCls.active]: active }, [])}
                             onClick={item.onClick}
                         >
                             {item.content}
