@@ -3,11 +3,11 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from 'shared/config/Storybook/Decorators/ThemeDecorator';
-import { Button } from '../../Button';
+import { Button } from '../../../../Button';
 import { DropDown } from './DropDown';
 
 export default {
-    title: 'Shared/DropDown',
+    title: 'Shared/Popups/DropDown',
     component: DropDown,
     args: {
         trigger: <Button>Open</Button>,

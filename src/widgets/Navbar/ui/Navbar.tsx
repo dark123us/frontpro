@@ -10,9 +10,11 @@ import {
 } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text';
-import { DropDown } from 'shared/ui/DropDown';
+import { DropDown } from 'shared/ui/Popups/ui/DropDown';
 import { Avatar } from 'shared/ui/Avatar';
 import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -45,19 +47,24 @@ export const Navbar = memo((props:NavbarProps) => {
     const isAdminPanelAvailable = isAdmin || isManager;
 
     const authButton = (undefined !== authData) ? (
-        <DropDown
-            className={cls.dropdown}
-            trigger={<Avatar size={30} src={authData?.avatar} />}
-            direction="bottom left"
-            items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Admin'), href: RoutePath.adminPanel,
-                }] : []),
+        <HStack gap="16" className={cls.actions}>
+            <Button theme={ButtonTheme.CLEAR}>
+                <Icon Svg={NotificationIcon} inverted />
+            </Button>
+            <DropDown
+                className={cls.dropdown}
+                trigger={<Avatar size={30} src={authData?.avatar} />}
+                direction="bottom left"
+                items={[
+                    ...(isAdminPanelAvailable ? [{
+                        content: t('Admin'), href: RoutePath.adminPanel,
+                    }] : []),
 
-                { content: t('Profile'), href: RoutePath.profile + authData.id },
-                { content: t('Logout'), onClick: onLogout },
-            ]}
-        />
+                    { content: t('Profile'), href: RoutePath.profile + authData.id },
+                    { content: t('Logout'), onClick: onLogout },
+                ]}
+            />
+        </HStack>
 
     ) : (
         <div>

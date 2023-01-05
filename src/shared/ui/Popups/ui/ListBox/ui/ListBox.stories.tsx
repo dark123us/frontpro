@@ -6,7 +6,7 @@ import {
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'Shared/ListBox',
+    title: 'Shared/Popups/ListBox',
     component: ListBox,
     args: {
         value: '234',
