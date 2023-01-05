@@ -7,11 +7,13 @@
 body {
     font-size: var(--font-m);
     color: var(--primary-color);
-    scrollbar-width: 12px;
+    scrollbar-width: thin;
     scrollbar-color: var(--inverted-bg-color) var(--bg-card) ;
 }
 
-.app {
+.app,
+.app_modal,
+.app_drawer {
     min-height: 100vh;
     background: var(--bg-color);
 }

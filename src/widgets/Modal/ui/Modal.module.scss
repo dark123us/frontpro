@@ -4,10 +4,13 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: -1;
+    z-index: var(--modal-z-index);
     opacity: 0;
     pointer-events: none;
     color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal.light {
@@ -41,7 +44,7 @@
 .opened {
     pointer-events: auto;
     opacity: 1;
-    z-index: var(--modal-z-index);
+    z-index: var(--modal-opened-z-index);
 
     .content {
         transform: scale(1);

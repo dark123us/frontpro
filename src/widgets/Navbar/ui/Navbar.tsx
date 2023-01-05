@@ -11,6 +11,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { Drawer } from 'shared/ui/Drawer';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,8 +34,24 @@ export const Navbar = memo((props:NavbarProps) => {
         setIsAuthModal(true);
     }, [setIsAuthModal]);
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onOpenDrawer = useCallback(() => {
+        setIsOpen(true);
+    }, [setIsOpen]);
+
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
+    }, [setIsOpen]);
+
     const authButton = (undefined !== authData) ? (
         <HStack gap="16" className={cls.actions}>
+            <Button onClick={onOpenDrawer}>
+                {t('click')}
+            </Button>
+            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                {t('drawer')}
+            </Drawer>
             <NotificationButton />
             <AvatarDropdown />
         </HStack>
