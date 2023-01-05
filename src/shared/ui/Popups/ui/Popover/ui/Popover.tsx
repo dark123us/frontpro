@@ -31,11 +31,10 @@ export const Popover = memo((props: PopoverProps) => {
                 {trigger}
             </PopoverHeadless.Button>
             <PopoverHeadless.Panel
-                className={classNames('', {}, menuClasses)}
+                className={classNames(cls.panel, {}, menuClasses)}
             >
                 {children}
             </PopoverHeadless.Panel>
-
         </PopoverHeadless>
     );
 });
