@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { memo, ReactNode } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useDrag } from '@use-gesture/react';
+import { a, useSpring, config } from '@react-spring/web';
 import { Portal } from '../../Portal/Portal';
 import cls from './Drawer.module.scss';
 import { Overlay } from '../../Overlay';
@@ -25,6 +27,9 @@ export const Drawer = memo((props: DrawerProps) => {
     } = props;
     const { t } = useTranslation();
     const { theme } = useTheme();
+
+    const [{ y }, api] = useSpring(() => ({ y: 80 }));
+    const bind = useDrag(() => {});
 
     const { close, isClosing, isMounted } = useModal({ animationDelay: 300, onClose, isOpen });
 
