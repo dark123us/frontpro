@@ -1,23 +1,22 @@
 .Overlay {
-  display: flex;
-  background: var(--overlay-color);
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: var(--overlay-z-index);
-  cursor: pointer;
+    display: flex;
+    background: var(--overlay-color);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: var(--overlay-z-index);
+    cursor: pointer;
 }
 
 .content {
-
-  padding: 20px;
-  border-radius: 10px;
-  background: var(--bg-color);
-  transition: 0.3s transform;
-  transform: scale(0.5);
-  max-width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--bg-color);
+    transition: 0.3s transform;
+    transform: scale(0.5);
+    max-width: 60%;
 }

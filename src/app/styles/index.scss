@@ -8,14 +8,14 @@ body {
     font-size: var(--font-m);
     color: var(--primary-color);
     scrollbar-width: thin;
-    scrollbar-color: var(--inverted-bg-color) var(--bg-card) ;
+    scrollbar-color: var(--inverted-bg-color) var(--bg-card);
 }
 
 .app,
 .app_modal,
 .app_drawer {
     font: var(--font-m);
-    color: var(--primary-color)
+    color: var(--primary-color);
 }
 
 .app {

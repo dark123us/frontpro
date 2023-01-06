@@ -1,12 +1,12 @@
 .tile {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .list {
-  .card {
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-  }
+    .card {
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+    }
 }
