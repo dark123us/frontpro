@@ -23,15 +23,6 @@
     --primary-color: #a3e25b;
 }
 
-.overlay {
-    width: 100%;
-    height: 100%;
-    background: var(--overlay-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .content {
     padding: 20px;
     border-radius: 10px;
