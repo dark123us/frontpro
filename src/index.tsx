@@ -9,7 +9,9 @@ import { StoreProvider } from '@/app/providers/StoreProvider';
 import '@/app/styles/index.scss';
 
 const container = document.getElementById('app');
-if (!container) throw new Error('Failed to find the root element');
+if (!container) {
+    throw new Error('Failed to find the root element');
+}
 const app = createRoot(container);
 
 app.render(
