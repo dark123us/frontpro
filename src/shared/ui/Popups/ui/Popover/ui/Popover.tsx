@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, ReactNode } from 'react';
 import { Popover as PopoverHeadless } from '@headlessui/react';
-import { DropDownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropDownDirection } from '@/shared/types/ui';
 import cls from './Popover.module.scss';
 import popupCls from '../../../styles/styles.module.scss';
 import { mapDirectionClass } from '../../../consts/const';

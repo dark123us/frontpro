@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { ThemeDecorator } from 'shared/config/Storybook/Decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { Icon } from './Icon';
 
 export default {

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Spinner } from 'shared/ui/Spinner';
-import { Button } from 'shared/ui/Button';
 import { useEffect, useState } from 'react';
-import { Input } from 'shared/ui/Input/ui/Input';
-import { Page } from 'widgets/Page';
+import { Spinner } from '@/shared/ui/Spinner';
+import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input/ui/Input';
+import { Page } from '@/widgets/Page';
 // import { Counter } from 'entities/Counter';
 
 const MainPage = () => {

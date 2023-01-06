@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Code } from 'widgets/Code';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Code } from '@/widgets/Code';
 import { ArticleBlockCode } from '../../model/types/article';
 import cls from './ArticleBlockCodeComponent.module.scss';
 

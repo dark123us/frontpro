@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from 'shared/ui/Text';
 import { HTMLAttributeAnchorTarget } from 'react';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { VStack } from '@/shared/ui/Stack';
 import { ArticleView } from '../../../model/consts/article';
 import { ArticleListItemSkeleton } from '../../ArticleListItem/ui/ArticleListItemSkeleton';
 import { ArticleListItem } from '../../ArticleListItem';

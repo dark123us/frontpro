@@ -1,7 +1,7 @@
 import React, {
     ErrorInfo, ReactNode, Suspense,
 } from 'react';
-import { ErrorBoundaryMessage } from 'widgets/ErrorBoundaryMessage';
+import { ErrorBoundaryMessage } from '@/widgets/ErrorBoundaryMessage';
 // import { withTranslation } from 'react-i18next';
 
 interface ErrorBoundaryProps {

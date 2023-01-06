@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { ThemeDecorator } from 'shared/config/Storybook/Decorators/ThemeDecorator';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import AvatarImage from 'shared/assets/test/avatar.jpg';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImage from '@/shared/assets/test/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 
 const data = {

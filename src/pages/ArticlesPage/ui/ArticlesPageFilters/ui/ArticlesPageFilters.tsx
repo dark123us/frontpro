@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     ArticleSortField,
     ArticleSortSelector,
     ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector,
-} from 'entities/Article';
-import { Card } from 'widgets/Card';
-import { Input } from 'shared/ui/Input';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+} from '@/entities/Article';
+import { Card } from '@/widgets/Card';
+import { Input } from '@/shared/ui/Input';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { fetchArticleList } from '../../../model/services/fetchArticleList/fetchArticleList';
 import {
     getArticlesPageOrder,

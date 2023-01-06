@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, ReactNode } from 'react';
 import { Popover } from '@headlessui/react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Popups.module.scss';
 import popupCls from '../styles/styles.module.scss';
 

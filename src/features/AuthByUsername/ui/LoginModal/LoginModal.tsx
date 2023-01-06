@@ -1,7 +1,7 @@
 import { FC, Suspense } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Modal } from 'widgets/Modal';
-import { Spinner } from 'shared/ui/Spinner';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Modal } from '@/widgets/Modal';
+import { Spinner } from '@/shared/ui/Spinner';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 

@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import withMock from 'storybook-addon-mock';
+import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
-} from 'shared/config/Storybook/Decorators/ThemeDecorator';
-import withMock from 'storybook-addon-mock';
-import { Article } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/Storybook/Decorators/StoreDecorator';
+} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { Article } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 const article: Article = {

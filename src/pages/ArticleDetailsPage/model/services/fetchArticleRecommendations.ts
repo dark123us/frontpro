@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { RoutePath } from 'app/providers/router/config/routeConfig';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Article } from '@/entities/Article';
+import { RoutePath } from '@/app/providers/router/config/routeConfig';
 
 export enum Message {
     ERROR = 'error'
