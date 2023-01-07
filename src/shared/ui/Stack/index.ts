@@ -1,3 +1,3 @@
 export { Flex } from './Flex';
-export { VStack } from './VStack';
-export { HStack } from './HStack';
+export { VStack } from './VStack/ui/VStack';
+export { HStack } from './HStack/ui/HStack';

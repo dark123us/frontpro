@@ -5,7 +5,7 @@ import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input/ui/Input';
 import { Page } from '@/widgets/Page';
 import { StarRating } from '@/shared/ui/StarRating';
-// import { Counter } from 'entities/Counter';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -40,6 +40,11 @@ const MainPage = () => {
                 {inputValue}
             </div>
             <StarRating />
+            <RatingCard
+                title={t('How are you the article')}
+                feedbackTitle={t('send feedback about article')}
+                hasFeedback
+            />
 
         </Page>
     );
