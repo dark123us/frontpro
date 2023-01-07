@@ -4,6 +4,7 @@ import { Spinner } from '@/shared/ui/Spinner';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input/ui/Input';
 import { Page } from '@/widgets/Page';
+import { StarRating } from '@/shared/ui/StarRating';
 // import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
@@ -38,6 +39,7 @@ const MainPage = () => {
                 />
                 {inputValue}
             </div>
+            <StarRating />
 
         </Page>
     );
