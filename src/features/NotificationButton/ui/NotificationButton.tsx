@@ -9,8 +9,8 @@ import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { NotificationList } from '@/entities/Notification';
 import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer';
-import { AnimationProvider } from '@/shared/lib/AnimationProvider';
 import cls from './NotificationButton.module.scss';
+import { isDetectMobileDevice } from '@/shared/lib/DetectMobile/isDetectMobile';
 
 interface NotificationButtonProps {
     className?: string;
@@ -34,21 +34,13 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         setIsOpen(false);
     }, [setIsOpen]);
 
-    const detectDevice = () => {
-        const isMobile = window.matchMedia;
-        if (!isMobile) return false;
-
-        const device = isMobile('(pointer:coarse)');
-        return device.matches;
-    };
-
     const trigger = (
         <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
             <Icon Svg={NotificationIcon} inverted />
         </Button>
     );
 
-    if (detectDevice()) {
+    if (isDetectMobileDevice()) {
         return (
             <>
                 {trigger}
