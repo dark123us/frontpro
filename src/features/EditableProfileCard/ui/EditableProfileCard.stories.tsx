@@ -4,11 +4,13 @@ import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { EditableProfileCard } from './EditableProfileCard';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
     title: 'TEMPLATE/EditableProfileCard',
     component: EditableProfileCard,
     args: {},
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof EditableProfileCard>;
 

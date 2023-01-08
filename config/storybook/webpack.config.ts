@@ -31,6 +31,11 @@ export default ({ config }: {config:webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
 
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
+
     config!.plugins!.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
         __API__: JSON.stringify('http://localhost:6006'),
