@@ -2,6 +2,7 @@ import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { cssLoader } from '../build/loaders/cssLoader';
+import { fileLoader } from '../build/loaders/fileLoaders';
 
 export default ({ config }: {config:webpack.Configuration}) => {
     const paths: BuildPaths = {
@@ -25,6 +26,7 @@ export default ({ config }: {config:webpack.Configuration}) => {
     });
 
     config!.module!.rules.push(cssLoader(true));
+    config!.module!.rules.push(fileLoader);
     config!.module!.rules.push({
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
