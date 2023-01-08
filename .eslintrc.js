@@ -70,7 +70,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'arrow-body-style': 'off',
-        'frontpro-eslint-plugin/path-checker': 'error',
+        'frontpro-eslint-plugin/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
