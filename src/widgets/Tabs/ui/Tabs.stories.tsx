@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
+import { Theme } from '@/app/providers/ThemeProvider';
 import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';

@@ -71,6 +71,11 @@ module.exports = {
         'no-undef': 'off',
         'arrow-body-style': 'off',
         'frontpro-eslint-plugin/path-checker': ['error', { alias: '@' }],
+        'frontpro-eslint-plugin/public-api-imports': [
+            'error', {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
+            }],
     },
     globals: {
         __IS_DEV__: true,
