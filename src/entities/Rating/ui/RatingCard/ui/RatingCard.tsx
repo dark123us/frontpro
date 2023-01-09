@@ -4,10 +4,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
-import { Card } from '@/widgets/Card';
+import { Card } from '@/shared/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating';
-import { Modal } from '@/widgets/Modal';
+import { Modal } from '@/shared/Modal';
 import { Input } from '@/shared/ui/Input';
 import { Text } from '@/shared/ui/Text';
 import { Button, ButtonTheme } from '@/shared/ui/Button';

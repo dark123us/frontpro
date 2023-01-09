@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/widgets/Card';
+import { Card } from '@/shared/Card';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { ArticleView } from '../../../model/consts/article';
 import cls from './ArticleListItem.module.scss';
