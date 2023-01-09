@@ -3,7 +3,6 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { AppRoutes, RoutePath } from '@/app/providers/router/config/routeConfig';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
@@ -12,6 +11,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
+import { AppRoutes, RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string

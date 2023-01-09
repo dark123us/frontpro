@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article, ArticleType } from '@/entities/Article';
-import { RoutePath } from '@/app/providers/router/config/routeConfig';
 import { addQueryParams } from '@/shared/lib/addQueryParams/addQueryParams';
 import {
     getArticlesPageLimit,
@@ -11,6 +10,7 @@ import {
     getArticlesPageSort,
     getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
+import { RoutePath } from '@/shared/const/router';
 
 export enum Message {
     ERROR = 'error'
