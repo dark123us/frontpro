@@ -1,6 +1,5 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { ReactNode } from 'react';
 import { componentRender, componentRenderOptions } from '@/shared/lib/tests/componentRender/componentRender';
 import { Profile } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';

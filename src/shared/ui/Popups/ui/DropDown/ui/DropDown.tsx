@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Fragment, memo, ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropDownDirection } from '@/shared/types/ui';

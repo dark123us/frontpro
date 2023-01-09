@@ -1,7 +1,6 @@
 import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { a } from '@react-spring/web';
 
 import { classNames } from '../../../lib/classNames/classNames';
 import { Portal } from '../../Portal/Portal';
