@@ -9,7 +9,7 @@ import { profilerReducer } from '../model/slices/profileSlices';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {
-    id: 1,
+    id: '1',
     first: 'admin',
     lastname: 'admin',
     age: 234,
