@@ -5,10 +5,10 @@ import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserMounted, userActions } from '@/entities/User';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+// import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 function App() {
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
     const dispatch = useDispatch();
     // const navigate = useNavigate();
     useEffect(() => {
@@ -19,7 +19,7 @@ function App() {
     console.log('mounted');
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [])}>
             <Navbar />
             <div className="content-page">
                 <Sidebar />

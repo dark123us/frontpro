@@ -7,7 +7,7 @@ import { RatingCard } from './RatingCard';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'TEMPLATES/RatingCard',
+    title: 'Entities/RatingCard',
     component: RatingCard,
     args: {},
     decorators: [StoreDecorator({})],
