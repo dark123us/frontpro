@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { Theme } from '@/app/providers/ThemeProvider';
 import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Tabs } from './Tabs';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'Widgets/Tabs',

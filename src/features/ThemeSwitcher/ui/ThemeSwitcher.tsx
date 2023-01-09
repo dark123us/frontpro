@@ -1,8 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme, Theme } from '@/app/providers/ThemeProvider';
+
 import ThemeDark from '@/shared/assets/icons/theme-dark.svg';
 import ThemeLight from '@/shared/assets/icons/theme-light.svg';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Theme } from '@/shared/const/theme';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface ThemeSwitcherProps {
     className?: string

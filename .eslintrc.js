@@ -76,6 +76,11 @@ module.exports = {
                 alias: '@',
                 testFilesPatterns: ['**/*.test.ts', '**/*.test.ts', '**/StoreDecorator.tsx'],
             }],
+        'frontpro-eslint-plugin/layer-imports': [
+            'error', {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            }],
     },
     globals: {
         __IS_DEV__: true,

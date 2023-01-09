@@ -4,8 +4,7 @@ import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import i18n4test from '@/shared/config/i18n/i18n4test';
-import { StoreProvider } from '@/app/providers/StoreProvider';
-import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
+import { StoreProvider, StateSchema } from '@/app/providers/StoreProvider';
 
 export interface componentRenderOptions {
     route?: string;

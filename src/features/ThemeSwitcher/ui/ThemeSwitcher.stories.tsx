@@ -1,22 +1,20 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
-import { LanguageSwitcher } from './LanguageSwitcher';
+import { ThemeSwitcher } from './ThemeSwitcher';
+import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'Widgets/LanguageSwitcher',
-    component: LanguageSwitcher,
+    title: 'Widgets/ThemeSwitcher',
+    component: ThemeSwitcher,
     argTypes: {},
     args: {
-        to: '/',
-        children: 'Text Link',
     },
-} as ComponentMeta<typeof LanguageSwitcher>;
+} as ComponentMeta<typeof ThemeSwitcher>;
 
-const Template: ComponentStory<typeof LanguageSwitcher> = (args) => (
-    <LanguageSwitcher {...args} />
+const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
+    <ThemeSwitcher {...args} />
 );
 
 export const Primary = Template.bind({});

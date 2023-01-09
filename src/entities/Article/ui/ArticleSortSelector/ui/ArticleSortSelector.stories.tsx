@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { ArticleSortSelector } from './ArticleSortSelector';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/ArticleList/ArticleSortSelector',

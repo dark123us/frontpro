@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Code } from './Code';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'Widgets/Code',

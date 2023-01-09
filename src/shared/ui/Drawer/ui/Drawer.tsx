@@ -2,12 +2,13 @@ import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
 import { a } from '@react-spring/web';
-import { useTheme } from '@/app/providers/ThemeProvider';
+
 import { classNames } from '../../../lib/classNames/classNames';
 import { Portal } from '../../Portal/Portal';
 import cls from './Drawer.module.scss';
 import { Overlay } from '../../Overlay';
 import { AnimationProvider, useAnimationLibs } from '../../../lib/AnimationProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface DrawerProps {
     className?: string;

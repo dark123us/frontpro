@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import {
     ThemeDecorator,
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { ArticleEditForm } from './ArticleEditForm';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'TEMPLATE/ArticleEditForm',
