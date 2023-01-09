@@ -4,10 +4,12 @@ import {
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import MainPage from './MainPage';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
     title: 'Pages/MainPage',
     component: MainPage,
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof MainPage>;
 

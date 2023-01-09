@@ -4,10 +4,12 @@ import {
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { NotFoundPage } from './NotFoundPage';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
     title: 'Pages/NotFoundPage',
     component: NotFoundPage,
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof NotFoundPage>;
 

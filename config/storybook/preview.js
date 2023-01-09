@@ -11,10 +11,7 @@ import {
 import {
     SuspenseDecorator,
 } from '../../src/shared/config/Storybook/Decorators/SuspenseDecorator';
-import {Theme} from "@";
-// import {
-//     TranslationDecorator,
-// } from '../../src/shared/config/Storybook/Decorators/TranslationDecorator';
+import { Theme } from '../../src/shared/const/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,10 +21,10 @@ export const parameters = {
             date: /Date$/,
         },
     },
+    layout: 'fullscreen',
 };
 
-// addDecorator(StyleDecorator);
+addDecorator(StyleDecorator({}));
 addDecorator(SuspenseDecorator);
-// addDecorator(TranslationDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(BrowserDecorator);
