@@ -22,7 +22,10 @@ export const ProfilePage = (props: ProfilePageProps) => {
     //     );
     // }
     return (
-        <Page className={classNames('', {}, [className, cls.profileCard])}>
+        <Page
+            data-testid="ProfilePage"
+            className={classNames('', {}, [className, cls.profileCard])}
+        >
             <VStack gap="16" max>
                 <EditableProfileCard id={id} />
             </VStack>

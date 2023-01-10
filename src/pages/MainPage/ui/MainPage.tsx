@@ -25,7 +25,10 @@ const MainPage = () => {
     const [inputValue, onChangeInput] = useState('');
 
     return (
-        <Page>
+        <Page
+            data-testid="MainPage"
+        >
+
             <h1>{t('Main')}</h1>
             {t('Main content')}
             <Spinner />
