@@ -5,8 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     ArticleSortField,
-    ArticleSortSelector,
-    ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector,
+    ArticleType, ArticleView,
 } from '@/entities/Article';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
@@ -22,6 +21,9 @@ import {
 } from '../../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../../model/slices/articlePageSlice';
 import cls from './ArticlesPageFilters.module.scss';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 interface ArticlesPageFiltersProps {
     className?: string;
