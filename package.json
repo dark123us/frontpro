@@ -32,6 +32,7 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:e2e": "cypress open",
     "storybook:server": "start-storybook -p 6006 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook",
     "test:all": "npm run build:prod && npm run lint:ts && npm run lint:scss && npm run test:unit && npm run storybook:build && npm run test:ui"
@@ -77,6 +78,7 @@
     "concurrently": "^7.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-frontpro-eslint-plugin": "^0.0.16",
