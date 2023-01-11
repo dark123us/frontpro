@@ -1,0 +1,49 @@
+name: Branch Fix linting, testing, building
+on:
+  push:
+    branches: [ fix ]
+  pull_request:
+    branches: [ fix ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Staring Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm ci
+      - name: build production project
+        run: npm run build:prod
+        if: always()
+      - name: linting typescript
+        run: npm run lint:ts
+        if: always()
+      - name: linting css
+        run: npm run lint:scss
+        if: always()
+      - name: unit testing
+        run: npm run test:unit
+        if: always()
+      - name: build storybook
+        run: npm run storybook:build
+        if: always()
+      - name: screenshot testing
+        run: npm run test:ui:ci
+        if: always()
+      - name: make report
+        run: npm run test:ui:report
+        if: failure()
+      - name: save report
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'loki difference ${{ github.run_number }}'
+          path: .loki/
+          retention-days: 2
+        if: failure()
