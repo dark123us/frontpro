@@ -57,12 +57,10 @@ export const ListBox = (props: ListBoxProps) => {
             >
 
                 <HListBox.Button
-                    disabled={readonly}
+                    as="div"
                     className={cls.trigger}
                 >
-
                     <Button disabled={readonly}>
-
                         {value ?? defaultValue}
                     </Button>
                 </HListBox.Button>
@@ -90,7 +88,6 @@ export const ListBox = (props: ListBoxProps) => {
                             )}
                         </HListBox.Option>
                     ))}
-
                 </HListBox.Options>
             </HListBox>
         </HStack>

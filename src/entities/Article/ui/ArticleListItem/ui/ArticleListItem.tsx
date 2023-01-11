@@ -13,9 +13,9 @@ import { ArticleBlockType, ArticleView } from '../../../model/consts/article';
 import { Article, ArticleBlockText } from '../../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleBlockTextComponent } from '../../ArticleBlockTextComponent/ArticleBlockTextComponent';
-import { RoutePath } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Skeleton } from '@/shared/ui/Skeleton';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -46,7 +46,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
-                to={RoutePath.articleDetails + article.id}
+                to={getRouteArticleDetails(article.id)}
                 {...bindHover}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
@@ -78,7 +78,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
-                to={RoutePath.articleDetails + article.id}
+                to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card className={cls.card}>
@@ -99,7 +99,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                         <ArticleBlockTextComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
-                        <AppLink to={RoutePath.articleDetails + article.id}>
+                        <AppLink to={getRouteArticleDetails(article.id)}>
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {t('Read next')}
                             </Button>

@@ -11,7 +11,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
-import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { getRouteAbout, getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string
@@ -72,20 +72,20 @@ export const Navbar = memo((props:NavbarProps) => {
                     <div className={cls.links}>
                         <AppLink
                             theme={AppLinkTheme.INVERTED}
-                            to={RoutePath[AppRoutes.ARTICLE_CREATE]}
+                            to={getRouteArticleCreate()}
                             className={cls.createBtn}
                         >
                             {t('Create article')}
                         </AppLink>
                         <AppLink
                             theme={AppLinkTheme.INVERTED}
-                            to={RoutePath[AppRoutes.MAIN]}
+                            to={getRouteMain()}
                             className={cls.mainLink}
                         >
                             {t('Main')}
                         </AppLink>
                         <AppLink
-                            to={RoutePath[AppRoutes.ABOUT]}
+                            to={getRouteAbout()}
                             className={cls.mainLink}
                         >
                             {t('About')}
