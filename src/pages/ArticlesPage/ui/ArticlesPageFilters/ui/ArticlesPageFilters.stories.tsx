@@ -7,7 +7,7 @@ import { ArticlesPageFilters } from './ArticlesPageFilters';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'Pages/Articles/ArticlesPageFilters',
+    title: 'Pages/ArticlesPage/ArticlesPageFilters',
     component: ArticlesPageFilters,
     argTypes: {},
     decorators: [StoreDecorator({})],

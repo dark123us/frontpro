@@ -56,7 +56,6 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
     if (!isDev) {
         plugins.push(
             new MiniCssExtractPlugin(
-
                 { filename: 'css/[name].[contenthash:4].css' },
             ),
         );

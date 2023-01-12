@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import AvatarImage from '@/shared/assets/test/avatar.jpg';
+// import AvatarImage from '@/shared/assets/test/avatar.jpg';
 import { ProfileCard } from './ProfileCard';
 import { Theme } from '@/shared/const/theme';
 
@@ -14,14 +14,16 @@ const data = {
     first: 'Vasya',
     currency: Currency.EURO,
     city: 'Minsk',
-    avatar: AvatarImage,
+    avatar: 'https://cs10.pikabu.ru/images/community/2064/1605883416236930302.png',
 };
 
 export default {
     title: 'Entities/ProfileCard',
     component: ProfileCard,
     argTypes: {},
-    args: {},
+    args: {
+        data,
+    },
 } as ComponentMeta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => (

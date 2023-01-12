@@ -7,7 +7,7 @@ import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecora
 import { Theme } from '@/shared/const/theme';
 
 export default {
-    title: 'TEMPLATE/EditableProfileCard',
+    title: 'Features/EditableProfileCard',
     component: EditableProfileCard,
     args: {},
     decorators: [StoreDecorator({})],

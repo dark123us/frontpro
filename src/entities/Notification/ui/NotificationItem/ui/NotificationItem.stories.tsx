@@ -8,7 +8,14 @@ import { Theme } from '@/shared/const/theme';
 export default {
     title: 'Entities/Notification/NotificationItem',
     component: NotificationItem,
-    args: {},
+    args: {
+        item: {
+            id: '1',
+            title: 'title',
+            href: 'http://localhost',
+            description: 'description',
+        },
+    },
     argTypes: {},
 } as ComponentMeta<typeof NotificationItem>;
 

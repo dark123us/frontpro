@@ -4,11 +4,13 @@ import {
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
-    title: 'TEMPLATE/ArticleDetailsComments',
+    title: 'Pages/ArticleDetailsPage/ArticleDetailsComments',
     component: ArticleDetailsComments,
     args: {},
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof ArticleDetailsComments>;
 

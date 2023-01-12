@@ -4,11 +4,13 @@ import {
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { EditableProfileCardPageHeader } from './EditableProfileCardPageHeader';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
-    title: 'TEMPLATE/EditableProfileCardPageHeader',
+    title: 'Features/EditableProfileCard/EditableProfileCardPageHeader',
     component: EditableProfileCardPageHeader,
     args: {},
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof EditableProfileCardPageHeader>;
 

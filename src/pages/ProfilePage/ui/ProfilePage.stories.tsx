@@ -5,7 +5,7 @@ import {
 import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import AvatarImage from '@/shared/assets/test/avatar.jpg';
+// import AvatarImage from '@/shared/assets/test/avatar.jpg';
 import ProfilePage from './ProfilePage';
 import { Theme } from '@/shared/const/theme';
 
@@ -17,7 +17,7 @@ const form = {
     first: 'Vasyz',
     currency: Currency.EURO,
     city: 'Minsk',
-    avatar: AvatarImage,
+    avatar: 'https://cs10.pikabu.ru/images/community/2064/1605883416236930302.png',
 };
 
 export default {

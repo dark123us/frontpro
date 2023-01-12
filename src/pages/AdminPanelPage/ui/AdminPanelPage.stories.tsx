@@ -4,11 +4,13 @@ import {
 } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { AdminPanelPage } from './AdminPanelPage';
 import { Theme } from '@/shared/const/theme';
+import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 
 export default {
-    title: 'TEMPLATE/AdminPanelPage',
+    title: 'Pages/AdminPanelPage',
     component: AdminPanelPage,
     args: {},
+    decorators: [StoreDecorator({})],
     argTypes: {},
 } as ComponentMeta<typeof AdminPanelPage>;
 
