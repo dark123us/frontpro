@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
-import { getRouteArticles } from '@/shared/const/router';
 
 export enum Message {
     ERROR = 'error'
@@ -25,7 +24,7 @@ export const fetchArticleRecommendations = createAsyncThunk<
 
             try {
                 const response = await extra.api.get<Article[]>(
-                    getRouteArticles(),
+                    '/api/articles',
                     {
                         params: {
                             _expand: 'user',

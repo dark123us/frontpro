@@ -1,5 +1,12 @@
 Cypress.Commands.add('login', (email, password) => {
-    //
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:5005/api/login',
+        body: {
+
+        },
+
+    });
 });
 declare global {
   namespace Cypress {

@@ -14,7 +14,17 @@ export default defineConfig({
     },
     define: {
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('http://localhost:8000'),
+        __API__: JSON.stringify('http://localhost:5005/'),
         __PROJECT__: JSON.stringify('frontend'),
+
+    },
+    server: {
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8000',
+                changeOrigin: true,
+                rewrite: (path: string) => path.replace(/^\/api/, ''),
+            },
+        },
     },
 });

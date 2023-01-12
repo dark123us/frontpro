@@ -10,7 +10,6 @@ import {
     getArticlesPageSort,
     getArticlesPageType,
 } from '../../selectors/articlesPageSelectors';
-import { getRouteArticles } from '@/shared/const/router';
 
 export enum Message {
     ERROR = 'error'
@@ -48,7 +47,7 @@ export const fetchArticleList = createAsyncThunk<
                     sort, order, search, type,
                 });
                 const response = await extra.api.get<Article[]>(
-                    getRouteArticles(),
+                    '/api/articles/',
                     {
                         params: {
                             _expand: 'user',

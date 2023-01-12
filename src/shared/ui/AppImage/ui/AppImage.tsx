@@ -24,11 +24,9 @@ export const AppImage = memo((props: AppImageProps) => {
         const img = new Image();
         img.src = src ?? '';
         img.onload = () => {
-            console.log('onload');
             setIsLoading(false);
         };
         img.onerror = () => {
-            console.log('error');
             setIsLoading(false);
             setHasError(true);
         };

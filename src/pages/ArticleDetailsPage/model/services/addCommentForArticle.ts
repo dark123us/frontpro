@@ -28,7 +28,7 @@ export const addCommentForArticle = createAsyncThunk<
             if (!userData || !text || !article) return rejectWithValue(ErrorMessage.NODATA);
             try {
                 const response = await extra.api.post<Comment>(
-                    '/comments',
+                    '/api/comments',
                     {
                         articleId: article.id,
                         userId: userData.id,
