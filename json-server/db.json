@@ -727,6 +727,18 @@
       "userId": "1",
       "text": "asdfsadf",
       "id": "mrDyi0E"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "фываыва ыфва выфа ыф",
+      "id": "-ncBwKn"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "выапваыпыв",
+      "id": "G72s-fz"
     }
   ],
   "users": [
@@ -771,7 +783,7 @@
     {
       "id": "1",
       "first": "timur123",
-      "lastname": "ulbi",
+      "lastname": "ulbiфыва ыфва ыф",
       "age": 465,
       "currency": "USD",
       "country": "Ukraine",
@@ -851,6 +863,20 @@
       "userId": "1",
       "feedback": "aasdfasdfasdf",
       "id": "bEylHC6"
+    },
+    {
+      "articleId": "13",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "ыфваыфваыфва",
+      "id": "Vp92xc2"
+    },
+    {
+      "articleId": "14",
+      "rate": 2,
+      "userId": "1",
+      "feedback": "лщп щгп шгпш",
+      "id": "j258JSB"
     }
   ],
   "profile-ratings": [
