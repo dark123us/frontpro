@@ -17,4 +17,17 @@ describe('empty spec', () => {
             cy.get(selectByTestId('NotFoundPage')).should('exist');
         });
     });
+    describe('Пользовалель авторизован', () => {
+        beforeEach(() => {
+            cy.login('admin', '123');
+        });
+        it('Открываем страницу профиля', () => {
+            cy.visit('/profile/1');
+            cy.get(selectByTestId('ProfilePage')).should('exist');
+        });
+        it('Открываем страницу списка статей', () => {
+            cy.visit('/articles');
+            cy.get(selectByTestId('ArticlesPage')).should('exist');
+        });
+    });
 });

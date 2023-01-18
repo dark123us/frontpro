@@ -1,13 +1,7 @@
-Cypress.Commands.add('login', (email, password) => {
-    cy.request({
-        method: 'POST',
-        url: 'http://localhost:5005/api/login',
-        body: {
+import { login } from './commands/login';
 
-        },
+Cypress.Commands.add('login', login);
 
-    });
-});
 declare global {
   namespace Cypress {
     interface Chainable {
