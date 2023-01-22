@@ -45,6 +45,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     if (view === ArticleView.TILE) {
         return (
             <AppLink
+                data-testid="ArticleListItem"
                 target={target}
                 to={getRouteArticleDetails(article.id)}
                 {...bindHover}
@@ -77,6 +78,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
         ) as ArticleBlockText;
         return (
             <AppLink
+                data-testid="ArticleListItem"
                 target={target}
                 to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
