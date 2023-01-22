@@ -2,5 +2,7 @@
   "Main": "Main",
   "Main content": "Main content",
   "getError": "fire Error event",
-  "placeholder": "placeholder"
+  "placeholder": "placeholder",
+  "How are you the article": "How are you the article",
+  "send feedback about article": "send feedback about article"
 }

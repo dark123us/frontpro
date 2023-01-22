@@ -6,5 +6,11 @@
   "Server error": "Server error",
   "Incorrect user data": "Incorrect user data",
   "Incorrect city": "Incorrect city",
-  "Incorrect age": "Incorrect age"
+  "Incorrect age": "Incorrect age",
+  "Your name": "Your name",
+  "Your lastname": "Your lastname",
+  "Age": "Age",
+  "Your city": "Your city",
+  "Username": "Username",
+  "avatar": "avatar"
 }

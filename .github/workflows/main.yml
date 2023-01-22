@@ -47,3 +47,5 @@ jobs:
           path: .loki/
           retention-days: 2
         if: failure()
+How are you the article: How are you the article
+send feedback about article: send feedback about article
