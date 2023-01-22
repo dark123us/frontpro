@@ -64,18 +64,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
         <VStack max gap="32">
             <Text title={feedbackTitle} />
             <Input
+                data-testid="RatingCard.Input"
                 value={feedback}
                 onChange={setFeedBack}
                 placeholder={t('comment')}
             />
             <HStack max gap="16" justify="end">
                 <Button
+                    data-testid="RatingCard.Close"
                     onClick={cancelHandle}
                     theme={ButtonTheme.OUTLINE_RED}
                 >
                     {t('Cancel')}
                 </Button>
                 <Button
+                    data-testid="RatingCard.Send"
                     onClick={acceptHandle}
                     theme={ButtonTheme.OUTLINE}
                 >
@@ -102,6 +105,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     return (
         <Card
+            data-testid="RatingCard"
             max
             className={classNames(cls.RatingCard, {}, [className])}
         >

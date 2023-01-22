@@ -4,6 +4,9 @@ const defaultArticle = {
     title: 'Python news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg',
+    userId: '3',
+    views: 1040,
+    createdAt: '27.02.2022',
     type: [
         'IT',
     ],

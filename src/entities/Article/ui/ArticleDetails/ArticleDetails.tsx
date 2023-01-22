@@ -86,13 +86,13 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
                         className={cls.avatar}
                     />
                 </HStack>
-                <VStack gap="4" max>
+                <VStack gap="4" max data-testid="ArticleDetails.Info">
                     <Text
+                        data-testid="ArticleDetails"
                         title={dataArticle?.title}
                         text={dataArticle?.subtitle}
                         size={TextSize.L}
                     />
-
                     <HStack gap="8">
                         <Icon
                             Svg={EyeIcon}
@@ -117,7 +117,11 @@ export const ArticleDetails = memo((props:ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack gap="16" className={classNames(cls.articleDetails, {}, [className])}>
+            <VStack
+                max
+                gap="16"
+                className={classNames(cls.articleDetails, {}, [className])}
+            >
                 {renderContent()}
             </VStack>
         </DynamicModuleLoader>
