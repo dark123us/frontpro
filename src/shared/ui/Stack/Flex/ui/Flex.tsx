@@ -56,6 +56,7 @@ export const Flex = (props: FlexProps) => {
         gap,
         style,
         max = false,
+        ...otherProps
     } = props;
 
     const classes = [
@@ -74,7 +75,7 @@ export const Flex = (props: FlexProps) => {
         <div
             className={classNames(cls.Flex, mods, classes)}
             style={style}
-            {...props}
+            {...otherProps}
         >
             {children}
         </div>
