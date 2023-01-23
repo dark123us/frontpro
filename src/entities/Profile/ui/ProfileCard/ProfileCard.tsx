@@ -137,7 +137,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeCountry}
                 readonly={readonly}
             />
-
         </VStack>
     );
 };

@@ -16,5 +16,17 @@
   "Articles": "Статьи",
   "Copy": "Скопировать",
   "Comments not found": "Коментарии не найдены",
-  "comment": "comment"
+  "comment": "comment",
+  "cancel": "cancel",
+  "save": "save",
+  "edit": "edit",
+  "FrontPro": "FrontPro",
+  "Create article": "Create article",
+  "select country": "select country",
+  "Enter country": "Enter country",
+  "Enter curency": "Enter curency",
+  "Enter currency": "Enter currency",
+  "Admin": "Admin",
+  "Cancel": "Cancel",
+  "Send": "Send"
 }
