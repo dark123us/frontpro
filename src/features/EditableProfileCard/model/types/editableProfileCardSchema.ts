@@ -6,7 +6,7 @@ export enum ValidateProfileError {
     INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
     INCORRECT_CITY = 'INCORRECT_CITY',
     NO_DATA = 'NO_DATA',
-    SERVER_ERROR = 'SERVER_ERROR'
+    SERVER_ERROR = 'SERVER_ERROR',
 }
 
 export interface ProfileSchema {

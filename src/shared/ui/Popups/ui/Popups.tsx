@@ -10,10 +10,7 @@ interface PopupsProps {
 }
 
 export const Popups = memo((props: PopupsProps) => {
-    const {
-        className,
-        children,
-    } = props;
+    const { className, children } = props;
     const { t } = useTranslation();
     return (
         <Popover className={classNames(cls.Popups, {}, [className])}>

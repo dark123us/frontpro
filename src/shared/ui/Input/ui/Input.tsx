@@ -1,14 +1,19 @@
 import React, {
     InputHTMLAttributes,
-    memo, useEffect, useRef, useState,
+    memo,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
-interface InputProps extends HTMLInputProps{
+interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
@@ -36,7 +41,8 @@ export const Input = memo((props: InputProps) => {
 
     const [caretPosition, setCaretPosition] = useState(0);
 
-    const isNumber = (str: string): boolean => !Number.isNaN(str) && !Number.isNaN(parseFloat(str));
+    const isNumber = (str: string): boolean =>
+        !Number.isNaN(str) && !Number.isNaN(parseFloat(str));
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         let { value } = e.target;
@@ -70,12 +76,9 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.inputWrapper, mods, [className])}>
-            {placeholder
-                && (
-                    <div className={cls.placeholder}>
-                        {`${placeholder}>`}
-                    </div>
-                )}
+            {placeholder && (
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
+            )}
             <div className={cls.caretWrapper}>
                 <input
                     data-testid="input"
@@ -90,13 +93,12 @@ export const Input = memo((props: InputProps) => {
                     readOnly={readonly}
                     {...otherProps}
                 />
-                {isFocused && !readonly
-                    && (
-                        <span
-                            className={cls.caret}
-                            style={{ left: `${caretPosition * 7}px` }}
-                        />
-                    )}
+                {isFocused && !readonly && (
+                    <span
+                        className={cls.caret}
+                        style={{ left: `${caretPosition * 7}px` }}
+                    />
+                )}
             </div>
         </div>
     );

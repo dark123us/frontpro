@@ -11,11 +11,9 @@ interface ProfilePageProps {
 }
 
 export const ProfilePage = (props: ProfilePageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('profile');
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     // if (!id) {
     //     return (
     //         <Text text={t('not found article')} />

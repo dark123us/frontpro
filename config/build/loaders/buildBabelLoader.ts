@@ -1,41 +1,41 @@
-import { BuildOptions } from '../types/config';
-import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
+import { BuildOptions } from "../types/config";
+import babelRemovePropsPlugin from "../../babel/babelRemovePropsPlugin";
 
 interface BuildBabelLoaderProps extends BuildOptions {
-    isTsx?: boolean
+    isTsx?: boolean;
 }
 
 export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
             cacheDirectory: true,
-            presets: ['@babel/preset-env'],
+            presets: ["@babel/preset-env"],
             plugins: [
                 [
-                    'i18next-extract',
+                    "i18next-extract",
                     {
-                        locales: ['ru', 'en'],
+                        locales: ["ru", "en"],
                         keyAsDefaultValue: true,
                     },
                 ],
                 [
-                    '@babel/plugin-transform-typescript',
+                    "@babel/plugin-transform-typescript",
                     {
                         isTsx,
                     },
                 ],
-                '@babel/plugin-transform-runtime',
-                isTsx && !isDev && [
-                    babelRemovePropsPlugin,
-                    {
-                        props: ['data-testid'],
-
-                    },
-                ],
-                isDev && require.resolve('react-refresh/babel'),
+                "@babel/plugin-transform-runtime",
+                isTsx &&
+                    !isDev && [
+                        babelRemovePropsPlugin,
+                        {
+                            props: ["data-testid"],
+                        },
+                    ],
+                isDev && require.resolve("react-refresh/babel"),
             ].filter(Boolean),
         },
     },

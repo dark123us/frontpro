@@ -1,21 +1,17 @@
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
-import CircularDependencyPlugin from 'circular-dependency-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import { BuildOptions } from './types/config';
+import webpack from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import CircularDependencyPlugin from "circular-dependency-plugin";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import { BuildOptions } from "./types/config";
 
-export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[] {
-    const {
-        paths,
-        isDev,
-        apiUrl,
-        isBundleAnalyzer,
-        project,
-    } = props;
+export function buildPlugin(
+    props: BuildOptions,
+): webpack.WebpackPluginInstance[] {
+    const { paths, isDev, apiUrl, isBundleAnalyzer, project } = props;
 
     const plugins = [
         new HtmlWebpackPlugin({
@@ -32,7 +28,6 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
         new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
-
         }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
@@ -40,7 +35,7 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
                     semantic: true,
                     syntactic: true,
                 },
-                mode: 'write-references',
+                mode: "write-references",
             },
         }),
     ];
@@ -55,16 +50,13 @@ export function buildPlugin(props:BuildOptions): webpack.WebpackPluginInstance[]
 
     if (!isDev) {
         plugins.push(
-            new MiniCssExtractPlugin(
-                { filename: 'css/[name].[contenthash:4].css' },
-            ),
+            new MiniCssExtractPlugin({
+                filename: "css/[name].[contenthash:4].css",
+            }),
         );
         plugins.push(
             new CopyPlugin({
-                patterns: [
-                    { from: paths.locales, to: paths.buildLocales },
-                ],
-
+                patterns: [{ from: paths.locales, to: paths.buildLocales }],
             }),
         );
     }

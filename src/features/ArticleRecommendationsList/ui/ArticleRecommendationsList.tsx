@@ -11,34 +11,34 @@ interface ArticleRecommendationsListProps {
     children?: ReactNode;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const {
-        className,
-        children,
-    } = props;
-    const { t } = useTranslation();
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className, children } = props;
+        const { t } = useTranslation();
 
-    const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
+        const {
+            isLoading,
+            data: articles,
+            error,
+        } = useArticleRecommendationsList(3);
 
-    if (isLoading || error || !articles) {
-        return null;
-    }
-    return (
-        <VStack
-            data-testid="ArticleRecommendationsList"
-            gap="8"
-            className={classNames('', {}, [className])}
-        >
-            {children}
-            <Text
-                size={TextSize.L}
-                title={t('Recommendations')}
-            />
-            <ArticleList
-                articles={articles}
-                isLoading={isLoading}
-                target="_blank"
-            />
-        </VStack>
-    );
-});
+        if (isLoading || error || !articles) {
+            return null;
+        }
+        return (
+            <VStack
+                data-testid="ArticleRecommendationsList"
+                gap="8"
+                className={classNames('', {}, [className])}
+            >
+                {children}
+                <Text size={TextSize.L} title={t('Recommendations')} />
+                <ArticleList
+                    articles={articles}
+                    isLoading={isLoading}
+                    target="_blank"
+                />
+            </VStack>
+        );
+    },
+);

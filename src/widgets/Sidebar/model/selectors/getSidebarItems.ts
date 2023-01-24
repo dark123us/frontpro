@@ -6,39 +6,41 @@ import AboutIcon from '@/shared/assets/icons/about-20-20.svg';
 import ArticleIcon from '@/shared/assets/icons/article-20-20.svg';
 import { SidebarItemType } from '../types/sidebar';
 import {
-    getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile,
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
 } from '@/shared/const/router';
 
-export const getSidebarItems = createSelector(
-    getUserAuthData,
-    (userData) => {
-        const SidebarItemsList: SidebarItemType[] = [
-            {
-                path: getRouteMain(),
-                Icon: MainIcon,
-                text: 'Main',
-            },
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const SidebarItemsList: SidebarItemType[] = [
+        {
+            path: getRouteMain(),
+            Icon: MainIcon,
+            text: 'Main',
+        },
 
+        {
+            path: getRouteAbout(),
+            Icon: AboutIcon,
+            text: 'About',
+        },
+    ];
+    if (userData) {
+        SidebarItemsList.push(
             {
-                path: getRouteAbout(),
-                Icon: AboutIcon,
-                text: 'About',
-            },
-
-        ];
-        if (userData) {
-            SidebarItemsList.push({
                 path: getRouteProfile(userData.id),
                 Icon: ProfileIcon,
                 text: 'Profile',
                 authOnly: true,
-            }, {
+            },
+            {
                 path: getRouteArticles(),
                 Icon: ArticleIcon,
                 text: 'Articles',
                 authOnly: true,
-            });
-        }
-        return SidebarItemsList;
-    },
-);
+            },
+        );
+    }
+    return SidebarItemsList;
+});

@@ -15,9 +15,7 @@ export const Counter = () => {
     return (
         <div>
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <h1 data-testid="value-title">
-                { counterValues }
-            </h1>
+            <h1 data-testid="value-title">{counterValues}</h1>
             <Button
                 data-testid="increment-btn"
                 theme={ButtonTheme.OUTLINE}

@@ -1,4 +1,4 @@
-let profileId:string = '';
+let profileId: string = '';
 
 describe('Пользователь заходит на страницу профила', () => {
     beforeEach(() => {
@@ -20,6 +20,9 @@ describe('Пользователь заходит на страницу проф
         const newLastName = 'newLastName';
         cy.updateProfile(newName, newLastName);
         cy.getByTestId('ProfileCard.FirstName').should('have.value', newName);
-        cy.getByTestId('ProfileCard.LastName').should('have.value', newLastName);
+        cy.getByTestId('ProfileCard.LastName').should(
+            'have.value',
+            newLastName,
+        );
     });
 });

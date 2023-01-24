@@ -10,7 +10,7 @@ export enum TextTheme {
 export enum TextAlign {
     RIGHT = 'right',
     LEFT = 'left',
-    CENTER = 'center'
+    CENTER = 'center',
 }
 
 export enum TextSize {
@@ -19,23 +19,22 @@ export enum TextSize {
     L = 'size_l',
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4'
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     [TextSize.S]: 'h3',
     [TextSize.M]: 'h2',
     [TextSize.L]: 'h1',
-
 };
 
-interface TextProps{
+interface TextProps {
     className?: string;
     title?: string;
     text?: string;
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
-    'data-testid'? : string;
+    'data-testid'?: string;
 }
 
 export const Text = (props: TextProps) => {
@@ -56,13 +55,12 @@ export const Text = (props: TextProps) => {
 
     return (
         <div
-            className={classNames(
-                cls.Text,
-                mods,
-                [
-                    className, cls[theme], cls[align], cls[size],
-                ],
-            )}
+            className={classNames(cls.Text, mods, [
+                className,
+                cls[theme],
+                cls[align],
+                cls[size],
+            ])}
             {...otherProps}
         >
             {title && (
@@ -74,10 +72,7 @@ export const Text = (props: TextProps) => {
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    className={cls.text}
-                    data-testid={`${dataTestId}.Paragraph`}
-                >
+                <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
                     {text}
                 </p>
             )}

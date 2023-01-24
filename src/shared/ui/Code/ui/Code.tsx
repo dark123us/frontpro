@@ -11,7 +11,7 @@ interface CodeProps {
     text: string;
 }
 
-export const Code = memo((props:CodeProps) => {
+export const Code = memo((props: CodeProps) => {
     const { className, text } = props;
     const { t } = useTranslation();
 
@@ -29,9 +29,7 @@ export const Code = memo((props:CodeProps) => {
                 <Icon Svg={CopyIcon} className={cls.copyIcon} />
                 {t('Copy')}
             </Button>
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     );
 });

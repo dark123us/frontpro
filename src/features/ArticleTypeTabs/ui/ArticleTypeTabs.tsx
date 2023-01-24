@@ -6,16 +6,12 @@ import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
     className?: string;
-    value: ArticleType
-    onChangeType: (type: ArticleType) => void
+    value: ArticleType;
+    onChangeType: (type: ArticleType) => void;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-    const {
-        className,
-        value,
-        onChangeType,
-    } = props;
+    const { className, value, onChangeType } = props;
     const { t } = useTranslation();
 
     const tabs = useMemo<TabItem[]>(
@@ -28,9 +24,12 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         [t],
     );
 
-    const onChangeTab = useCallback((newTab: TabItem) => {
-        onChangeType(newTab.value as ArticleType);
-    }, [onChangeType]);
+    const onChangeTab = useCallback(
+        (newTab: TabItem) => {
+            onChangeType(newTab.value as ArticleType);
+        },
+        [onChangeType],
+    );
 
     return (
         <Tabs
@@ -39,6 +38,5 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
             onTabClick={onChangeTab}
             className={classNames('', {}, [className])}
         />
-
     );
 });

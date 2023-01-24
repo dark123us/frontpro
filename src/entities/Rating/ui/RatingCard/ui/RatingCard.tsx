@@ -1,6 +1,4 @@
-import {
-    memo, ReactNode, useCallback, useState,
-} from 'react';
+import { memo, ReactNode, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
@@ -17,12 +15,12 @@ import { Drawer } from '@/shared/ui/Drawer';
 interface RatingCardProps {
     className?: string;
     children?: ReactNode;
-    title?: string
-    feedbackTitle?: string
+    title?: string;
+    feedbackTitle?: string;
     hasFeedback?: boolean;
-    onCancel?: (starsCount: number) => void
-    onAccept?: (starsCount: number, feedback?: string) => void
-    rate?: number
+    onCancel?: (starsCount: number) => void;
+    onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -41,14 +39,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedBack] = useState('');
 
-    const onSelectStars = useCallback((selectStarsCount: number) => {
-        setStarsCount(selectStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectStarsCount: number) => {
+            setStarsCount(selectStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -89,18 +90,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     const feedbackContent = isDetectMobileDevice() ? (
-        <Drawer
-            onClose={cancelHandle}
-            isOpen={isModalOpen}
-            lazy
-        >
+        <Drawer onClose={cancelHandle} isOpen={isModalOpen} lazy>
             {content}
         </Drawer>
     ) : (
         <Modal isOpen={isModalOpen} lazy>
             {content}
         </Modal>
-
     );
 
     return (
@@ -111,7 +107,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
         >
             <VStack max align="center" gap="8">
                 <Text title={rate > 0 ? t('спасибо за оценку') : title} />
-                <StarRating selectedStars={rate} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={rate}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
             </VStack>
             {feedbackContent}
         </Card>

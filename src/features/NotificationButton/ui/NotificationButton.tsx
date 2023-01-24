@@ -1,7 +1,4 @@
-import { useTranslation } from 'react-i18next';
-import {
-    memo, ReactNode, useCallback, useState,
-} from 'react';
+import { memo, ReactNode, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
@@ -18,11 +15,7 @@ interface NotificationButtonProps {
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-    const {
-        className,
-        children,
-    } = props;
-    const { t } = useTranslation();
+    const { className, children } = props;
 
     const [isOpen, setIsOpen] = useState(false);
 

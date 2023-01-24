@@ -10,35 +10,26 @@ import { articlesPageActions } from '../../slices/articlePageSlice';
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList';
 
 export enum Message {
-    ERROR = 'error'
+    ERROR = 'error',
 }
 
 interface FetchArticlesListProps {
-    page?: number
+    page?: number;
 }
 
 export const fetchNextArticlesPage = createAsyncThunk<
     void,
     void,
     ThunkConfig<string>
-    >(
-        'articlesPage/fetchNextArticlesPage',
-        async (
-            _,
-            thunkAPI,
-        ) => {
-            const {
-                getState,
-                dispatch,
-            } = thunkAPI;
-            const hasMore = getArticlesPageHasMore(getState());
-            const page = getArticlesPageNumber(getState());
-            const limit = getArticlesPageLimit(getState());
-            const isLoading = getArticlesPageIsLoading(getState());
+>('articlesPage/fetchNextArticlesPage', async (_, thunkAPI) => {
+    const { getState, dispatch } = thunkAPI;
+    const hasMore = getArticlesPageHasMore(getState());
+    const page = getArticlesPageNumber(getState());
+    const limit = getArticlesPageLimit(getState());
+    const isLoading = getArticlesPageIsLoading(getState());
 
-            if (hasMore && !isLoading) {
-                dispatch(articlesPageActions.setPage(page + 1));
-                dispatch(fetchArticleList({}));
-            }
-        },
-    );
+    if (hasMore && !isLoading) {
+        dispatch(articlesPageActions.setPage(page + 1));
+        dispatch(fetchArticleList({}));
+    }
+});

@@ -1,14 +1,14 @@
-import webpack from 'webpack';
-import { BuildOptions } from './types/config';
-import { cssLoader } from './loaders/cssLoader';
-import { buildBabelLoader } from './loaders/buildBabelLoader';
-import { fileLoader } from './loaders/fileLoaders';
+import webpack from "webpack";
+import { BuildOptions } from "./types/config";
+import { cssLoader } from "./loaders/cssLoader";
+import { buildBabelLoader } from "./loaders/buildBabelLoader";
+import { fileLoader } from "./loaders/fileLoaders";
 
-export function buildLoader(options: BuildOptions):webpack.RuleSetRule[] {
+export function buildLoader(options: BuildOptions): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        use: ['@svgr/webpack'],
+        use: ["@svgr/webpack"],
     };
 
     const styleLoader = cssLoader(options.isDev);
@@ -17,7 +17,7 @@ export function buildLoader(options: BuildOptions):webpack.RuleSetRule[] {
 
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
         exclude: /node_modules/,
     };
     return [

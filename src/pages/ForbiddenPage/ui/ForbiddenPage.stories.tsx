@@ -17,7 +17,4 @@ const Template: ComponentStory<typeof ForbiddenPage> = (args) => (
 
 export const Main = Template.bind({});
 Main.args = {};
-Main.decorators = [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({}),
-];
+Main.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({})];

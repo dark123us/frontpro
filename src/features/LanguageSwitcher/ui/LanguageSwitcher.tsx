@@ -3,11 +3,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
 interface LanguageSwitcherProps {
-    className?: string,
-    short?: boolean
+    className?: string;
+    short?: boolean;
 }
 
-export const LanguageSwitcher = (props:LanguageSwitcherProps) => {
+export const LanguageSwitcher = (props: LanguageSwitcherProps) => {
     const { className, short } = props;
     const { t, i18n } = useTranslation();
     const onLanguagechange = async () => {

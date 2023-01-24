@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Skeleton } from './Skeleton';
 import { Theme } from '@/shared/const/theme';
 
@@ -20,8 +18,7 @@ const Template: ComponentStory<typeof Skeleton> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {
-};
+Primary.args = {};
 
 export const Circle = Template.bind({});
 Circle.args = {

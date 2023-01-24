@@ -5,10 +5,16 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 
 import { HStack } from '@/shared/ui/Stack';
-import { addCommentFormActions, addCommentFormReducer } from '../model/slices/addCommentFormSlice';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../model/slices/addCommentFormSlice';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
@@ -17,7 +23,7 @@ import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
-    onSendComment: (text:string) => void
+    onSendComment: (text: string) => void;
 }
 
 const reducers: ReducersList = {
@@ -25,17 +31,17 @@ const reducers: ReducersList = {
 };
 
 export const AddCommentForm = (props: AddCommentFormProps) => {
-    const {
-        className,
-        onSendComment,
-    } = props;
+    const { className, onSendComment } = props;
     const { t } = useTranslation();
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
     const dispatch = useAppDispatch();
-    const onCommentTextChange = useCallback((comment:string) => {
-        dispatch(addCommentFormActions.setText(comment));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (comment: string) => {
+            dispatch(addCommentFormActions.setText(comment));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -64,7 +70,6 @@ export const AddCommentForm = (props: AddCommentFormProps) => {
                 >
                     {t('send')}
                 </Button>
-
             </HStack>
         </DynamicModuleLoader>
     );

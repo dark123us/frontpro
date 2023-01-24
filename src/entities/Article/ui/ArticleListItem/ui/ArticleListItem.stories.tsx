@@ -32,5 +32,5 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => (
 );
 
 export const Main = Template.bind({});
-Main.args = { };
+Main.args = {};
 Main.decorators = [ThemeDecorator(Theme.DARK)];

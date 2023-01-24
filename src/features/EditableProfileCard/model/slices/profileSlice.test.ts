@@ -1,7 +1,10 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
-import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
+import {
+    ProfileSchema,
+    ValidateProfileError,
+} from '../types/editableProfileCardSchema';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profilerReducer } from './profileSlices';
 
@@ -19,25 +22,31 @@ const data = {
 describe('profileSlice', () => {
     test('set readonly', () => {
         const state: DeepPartial<ProfileSchema> = { readonly: false };
-        expect(profilerReducer(
-            state as ProfileSchema,
-            profileActions.setReadonly(true),
-        )).toEqual({ readonly: true });
+        expect(
+            profilerReducer(
+                state as ProfileSchema,
+                profileActions.setReadonly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
     test('update Profile', () => {
         const state: DeepPartial<ProfileSchema> = { data };
-        expect(profilerReducer(
-            state as ProfileSchema,
-            profileActions.updateProfile(data),
-        )).toEqual({ form: data, data });
+        expect(
+            profilerReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile(data),
+            ),
+        ).toEqual({ form: data, data });
     });
 
     test('cancel edit', () => {
         const state: DeepPartial<ProfileSchema> = { data };
-        expect(profilerReducer(
-            state as ProfileSchema,
-            profileActions.cancelEdit(),
-        )).toEqual({ form: data, data, validateErrors: [] });
+        expect(
+            profilerReducer(
+                state as ProfileSchema,
+                profileActions.cancelEdit(),
+            ),
+        ).toEqual({ form: data, data, validateErrors: [] });
     });
 
     test('update profile service pending', () => {
@@ -46,11 +55,13 @@ describe('profileSlice', () => {
             isLoading: false,
             validateErrors: [ValidateProfileError.INCORRECT_USER_DATA],
         };
-        expect(profilerReducer(
-            state as ProfileSchema,
-            updateProfileData.pending,
-        )).toEqual({
-            form: data, validateErrors: [], isLoading: true, error: undefined,
+        expect(
+            profilerReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({
+            form: data,
+            validateErrors: [],
+            isLoading: true,
+            error: undefined,
         });
     });
 
@@ -60,10 +71,12 @@ describe('profileSlice', () => {
             isLoading: true,
             validateErrors: [ValidateProfileError.INCORRECT_USER_DATA],
         };
-        expect(profilerReducer(
-            state as ProfileSchema,
-            updateProfileData.fulfilled(data, ''),
-        )).toEqual({
+        expect(
+            profilerReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(data, ''),
+            ),
+        ).toEqual({
             form: data,
             data,
             validateErrors: [],

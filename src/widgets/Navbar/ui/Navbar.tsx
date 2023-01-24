@@ -11,16 +11,18 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
-import { getRouteAbout, getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
+import {
+    getRouteAbout,
+    getRouteArticleCreate,
+    getRouteMain,
+} from '@/shared/const/router';
 
 interface NavbarProps {
-    className?: string
+    className?: string;
 }
 
-export const Navbar = memo((props:NavbarProps) => {
-    const {
-        className,
-    } = props;
+export const Navbar = memo((props: NavbarProps) => {
+    const { className } = props;
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
     const authData = useSelector(getUserAuthData);
@@ -33,30 +35,25 @@ export const Navbar = memo((props:NavbarProps) => {
         setIsAuthModal(true);
     }, [setIsAuthModal]);
 
-    const authButton = (undefined !== authData) ? (
-        <HStack gap="16" className={cls.actions}>
-
-            <NotificationButton />
-            <AvatarDropdown />
-        </HStack>
-
-    ) : (
-        <div>
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={onShowModal}
-            >
-                {t('Enter')}
-            </Button>
-            {isAuthModal
-                && (
-                    <LoginModal
-                        isOpen={isAuthModal}
-                        onClose={onCloseModal}
-                    />
+    const authButton =
+        undefined !== authData ? (
+            <HStack gap="16" className={cls.actions}>
+                <NotificationButton />
+                <AvatarDropdown />
+            </HStack>
+        ) : (
+            <div>
+                <Button
+                    theme={ButtonTheme.CLEAR_INVERTED}
+                    onClick={onShowModal}
+                >
+                    {t('Enter')}
+                </Button>
+                {isAuthModal && (
+                    <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
                 )}
-        </div>
-    );
+            </div>
+        );
 
     return (
         <header className={classNames(cls.navbar, {}, [className])}>
@@ -84,13 +81,9 @@ export const Navbar = memo((props:NavbarProps) => {
                         >
                             {t('Main')}
                         </AppLink>
-                        <AppLink
-                            to={getRouteAbout()}
-                            className={cls.mainLink}
-                        >
+                        <AppLink to={getRouteAbout()} className={cls.mainLink}>
                             {t('About')}
                         </AppLink>
-
                     </div>
                     {authButton}
                 </HStack>

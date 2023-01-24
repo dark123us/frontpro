@@ -6,15 +6,11 @@ import cls from './Overlay.module.scss';
 interface OverlayProps {
     className?: string;
     children?: ReactNode;
-    onClick?: () => void
+    onClick?: () => void;
 }
 
 export const Overlay = memo((props: OverlayProps) => {
-    const {
-        className,
-        children,
-        onClick,
-    } = props;
+    const { className, children, onClick } = props;
     const { t } = useTranslation();
     return (
         <div

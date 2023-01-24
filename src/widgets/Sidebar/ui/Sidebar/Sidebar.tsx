@@ -1,6 +1,4 @@
-import {
-    memo, useMemo, useState,
-} from 'react';
+import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
@@ -13,13 +11,11 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string
+    className?: string;
 }
 
-export const Sidebar = memo((props:SidebarProps) => {
-    const {
-        className,
-    } = props;
+export const Sidebar = memo((props: SidebarProps) => {
+    const { className } = props;
 
     const [collapsed, setCollapsed] = useState(false);
 
@@ -27,22 +23,24 @@ export const Sidebar = memo((props:SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
     const sidebarItemsList = useSelector(getSidebarItems);
-    const sidebarItems = useMemo(() => sidebarItemsList.map((item) => (
-        <SidebarItem
-            key={item.path}
-            item={item}
-            collapsed={collapsed}
-        />
-    )), [collapsed, sidebarItemsList]);
+    const sidebarItems = useMemo(
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
+        [collapsed, sidebarItemsList],
+    );
 
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(
-                cls.sidebar,
-                { [cls.collapsed]: collapsed },
-                [className],
-            )}
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <VStack role="navigation" gap="8" className={cls.items}>
                 {sidebarItems}
@@ -63,7 +61,6 @@ export const Sidebar = memo((props:SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-
         </aside>
     );
 });

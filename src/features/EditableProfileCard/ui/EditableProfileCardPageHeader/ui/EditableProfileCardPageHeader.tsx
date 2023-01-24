@@ -9,40 +9,40 @@ import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { updateProfileData } from '../../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../../model/slices/profileSlices';
-import { getProfileData, getProfileReadonly } from '../../../model/selectors/getProfile';
+import {
+    getProfileData,
+    getProfileReadonly,
+} from '../../../model/selectors/getProfile';
 
 interface EditableProfileCardPageHeaderProps {
     className?: string;
     children?: ReactNode;
 }
 
-export const EditableProfileCardPageHeader = memo((props: EditableProfileCardPageHeaderProps) => {
-    const {
-        className,
-        children,
-    } = props;
+export const EditableProfileCardPageHeader = memo(
+    (props: EditableProfileCardPageHeaderProps) => {
+        const { className, children } = props;
 
-    const { t } = useTranslation();
+        const { t } = useTranslation();
 
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
+        const authData = useSelector(getUserAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
 
-    const readonly = useSelector(getProfileReadonly);
-    const dispatch = useAppDispatch();
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const readonly = useSelector(getProfileReadonly);
+        const dispatch = useAppDispatch();
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(false));
+        }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(true));
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    const btn = readonly
-        ? (
+        const btn = readonly ? (
             <Button
                 onClick={onEdit}
                 theme={ButtonTheme.OUTLINE}
@@ -69,10 +69,15 @@ export const EditableProfileCardPageHeader = memo((props: EditableProfileCardPag
             </HStack>
         );
 
-    return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
-            <Text title={t('Profile')} />
-            {canEdit && btn}
-        </HStack>
-    );
-});
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <Text title={t('Profile')} />
+                {canEdit && btn}
+            </HStack>
+        );
+    },
+);

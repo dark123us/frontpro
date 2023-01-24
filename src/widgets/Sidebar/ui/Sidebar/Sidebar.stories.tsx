@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 import { Sidebar } from './Sidebar';
 import { Theme } from '@/shared/const/theme';
@@ -31,7 +29,4 @@ DarkIsAuth.decorators = [
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({}),
-];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

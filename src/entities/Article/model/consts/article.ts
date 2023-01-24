@@ -7,13 +7,13 @@ export const enum ArticleType {
 
 export const enum ArticleView {
     LIST = 'list',
-    TILE = 'tile'
+    TILE = 'tile',
 }
 
 export const enum ArticleSortField {
     VIEWS = 'views',
     TITLE = 'title',
-    CREATED = 'createdAt'
+    CREATED = 'createdAt',
 }
 
 export const enum ArticleBlockType {

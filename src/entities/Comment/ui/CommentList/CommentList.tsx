@@ -9,14 +9,12 @@ import { Comment } from '../../model/types/comment';
 interface CommentListProps {
     className?: string;
     comments?: Comment[];
-    isLoading?:boolean;
-    error?: string
+    isLoading?: boolean;
+    error?: string;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const {
-        className, comments, isLoading, error,
-    } = props;
+    const { className, comments, isLoading, error } = props;
     const { t } = useTranslation();
 
     if (isLoading) {
@@ -31,17 +29,17 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <VStack gap="16" max className={classNames('', {}, [className])}>
-            {comments?.length
-                ? comments.map((comment) => (
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         isLoading={isLoading}
                         key={comment.id}
                         comment={comment}
                     />
                 ))
-                : (
-                    <Text text={t('Comments not found')} />
-                )}
+            ) : (
+                <Text text={t('Comments not found')} />
+            )}
         </VStack>
     );
 });

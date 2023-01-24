@@ -22,8 +22,7 @@ describe('test query params', () => {
         expect(params).toEqual('?test=value');
     });
     test('with 0 params', () => {
-        const params = getQueryParams({
-        });
+        const params = getQueryParams({});
         expect(params).toEqual('?');
     });
 });

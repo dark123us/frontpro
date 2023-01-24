@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Button } from '../../../../Button';
 import { DropDown } from './DropDown';
 import { Theme } from '@/shared/const/theme';
@@ -17,7 +15,6 @@ export default {
             { content: 'third', disabled: true },
             { content: 'fourth' },
         ],
-
     },
     argTypes: {},
 } as ComponentMeta<typeof DropDown>;

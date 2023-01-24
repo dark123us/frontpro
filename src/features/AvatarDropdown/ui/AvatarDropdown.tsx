@@ -5,7 +5,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown } from '@/shared/ui/Popups';
 import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import cls from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
@@ -16,10 +19,7 @@ interface AvatarDropdownProps {
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-    const {
-        className,
-        children,
-    } = props;
+    const { className, children } = props;
     const { t } = useTranslation();
 
     const dispatch = useDispatch();
@@ -38,15 +38,21 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     }
 
     return (
-
         <DropDown
             className={classNames(cls.AvatarDropdown, {}, [className])}
-            trigger={<Avatar fallbackInverted size={30} src={authData?.avatar} />}
+            trigger={
+                <Avatar fallbackInverted size={30} src={authData?.avatar} />
+            }
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Admin'), href: getRouteAdmin(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Admin'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
 
                 { content: t('Profile'), href: getRouteProfile(authData.id) },
                 { content: t('Logout'), onClick: onLogout },

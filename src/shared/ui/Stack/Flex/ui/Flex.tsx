@@ -1,6 +1,4 @@
-import {
-    DetailedHTMLProps, HTMLAttributes, ReactNode,
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -34,16 +32,19 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
-export interface FlexProps extends DivProps{
+export interface FlexProps extends DivProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: FlexGap;
-    max?: boolean,
+    max?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -69,7 +70,6 @@ export const Flex = (props: FlexProps) => {
 
     const mods = {
         [cls.max]: max,
-
     };
     return (
         <div

@@ -1,6 +1,6 @@
 import { PluginItem } from '@babel/core';
 
-export default ():PluginItem => {
+export default (): PluginItem => {
     return {
         visitor: {
             Program(path, state) {
@@ -12,7 +12,6 @@ export default ():PluginItem => {
                             current.parentPath.remove();
                         }
                     },
-
                 });
             },
         },

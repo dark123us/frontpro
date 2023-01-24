@@ -6,10 +6,8 @@ interface SpinnerProps {
     className?: string;
 }
 
-export const Spinner:FC<SpinnerProps> = (props) => {
-    const {
-        className,
-    } = props;
+export const Spinner: FC<SpinnerProps> = (props) => {
+    const { className } = props;
     return (
         <div className={classNames('lds-spinner', {}, [className])}>
             <div />

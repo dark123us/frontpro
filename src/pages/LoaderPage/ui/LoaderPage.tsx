@@ -8,10 +8,8 @@ interface LoaderPageProps {
     className?: string;
 }
 
-export const LoaderPage:FC<LoaderPageProps> = (props) => {
-    const {
-        className,
-    } = props;
+export const LoaderPage: FC<LoaderPageProps> = (props) => {
+    const { className } = props;
     return (
         <Page className={classNames(cls.loaderPage, {}, [className])}>
             <Spinner />

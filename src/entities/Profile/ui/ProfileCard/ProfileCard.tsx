@@ -46,16 +46,29 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <Spinner />
             </HStack>
-
         );
     }
 
     if (error) {
         return (
-            <HStack justify="center" max className={classNames(cls.profileCard, {}, [className, cls.error])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     title={t('An error occurred')}
                     text={error}
@@ -71,15 +84,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <VStack gap="16" max className={classNames(cls.profileCard, mods, [className])}>
-            {
-                data?.avatar
-                && (
-                    <HStack justify="center" className={cls.avatarWrapper}>
-                        <Avatar src={data?.avatar} />
-                    </HStack>
-                )
-            }
+        <VStack
+            gap="16"
+            max
+            className={classNames(cls.profileCard, mods, [className])}
+        >
+            {data?.avatar && (
+                <HStack justify="center" className={cls.avatarWrapper}>
+                    <Avatar src={data?.avatar} />
+                </HStack>
+            )}
             <Input
                 className={cls.input}
                 value={data?.first}

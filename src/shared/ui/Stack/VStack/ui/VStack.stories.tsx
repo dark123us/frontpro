@@ -19,14 +19,11 @@ export default {
                 <div>fourth</div>
             </>
         ),
-
     },
     argTypes: {},
 } as ComponentMeta<typeof VStack>;
 
-const Template: ComponentStory<typeof VStack> = (args) => (
-    <VStack {...args} />
-);
+const Template: ComponentStory<typeof VStack> = (args) => <VStack {...args} />;
 
 export const Main = Template.bind({});
 Main.args = {};

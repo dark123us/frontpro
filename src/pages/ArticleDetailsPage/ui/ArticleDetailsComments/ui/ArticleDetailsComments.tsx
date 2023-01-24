@@ -11,45 +11,47 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { VStack } from '@/shared/ui/Stack';
 import { fetchCommentsByArticleId } from '../../../model/services/fetchCommentsByArticleId';
 import { getArticleComments } from '../../../model/slices/articleDetailsCommentsSlice';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../../model/selectors/comments';
+import {
+    getArticleCommentsError,
+    getArticleCommentsIsLoading,
+} from '../../../model/selectors/comments';
 import { addCommentForArticle } from '../../../model/services/addCommentForArticle';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
-    articleId: string
+    articleId: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const {
-        className,
-        articleId,
-    } = props;
-    const { t } = useTranslation();
-    const dispatch = useAppDispatch();
-    useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(articleId));
-    });
+export const ArticleDetailsComments = memo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, articleId } = props;
+        const { t } = useTranslation();
+        const dispatch = useAppDispatch();
+        useInitialEffect(() => {
+            dispatch(fetchCommentsByArticleId(articleId));
+        });
 
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-    const commentsError = useSelector(getArticleCommentsError);
+        const comments = useSelector(getArticleComments.selectAll);
+        const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+        const commentsError = useSelector(getArticleCommentsError);
 
-    const onSendComment = useCallback((text:string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text));
+            },
+            [dispatch],
+        );
 
-    return (
-        <VStack gap="16" max className={classNames('', {}, [className])}>
-            <Text
-                size={TextSize.L}
-                title={t('Comments')}
-            />
-            <AddCommentForm onSendComment={onSendComment} />
-            <CommentList
-                comments={comments}
-                isLoading={commentsIsLoading}
-                error={commentsError}
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack gap="16" max className={classNames('', {}, [className])}>
+                <Text size={TextSize.L} title={t('Comments')} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    comments={comments}
+                    isLoading={commentsIsLoading}
+                    error={commentsError}
+                />
+            </VStack>
+        );
+    },
+);

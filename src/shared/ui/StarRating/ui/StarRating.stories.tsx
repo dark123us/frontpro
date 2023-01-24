@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 import { StarRating } from './StarRating';
 import { Theme } from '@/shared/const/theme';

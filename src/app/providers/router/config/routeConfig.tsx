@@ -11,18 +11,21 @@ import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import {
     AppRoutes,
-    getRouteAbout, getRouteAdmin,
+    getRouteAbout,
+    getRouteAdmin,
     getRouteArticleCreate,
-    getRouteArticleDetails, getRouteArticleEdit,
-    getRouteArticles, getRouteForbidden,
+    getRouteArticleDetails,
+    getRouteArticleEdit,
+    getRouteArticles,
+    getRouteForbidden,
     getRouteMain,
     getRouteProfile,
 } from '@/shared/const/router';
 
 export type AppRoutesProps = RouteProps & {
-    authOnly?: boolean
-    roles?: UserRole[]
-}
+    authOnly?: boolean;
+    roles?: UserRole[];
+};
 
 export const RouteConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {

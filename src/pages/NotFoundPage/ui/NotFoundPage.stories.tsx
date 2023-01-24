@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { NotFoundPage } from './NotFoundPage';
 import { Theme } from '@/shared/const/theme';
 import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
@@ -13,9 +11,7 @@ export default {
     argTypes: {},
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = () => (
-    <NotFoundPage />
-);
+const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const Light = Template.bind({});
 Light.args = {};

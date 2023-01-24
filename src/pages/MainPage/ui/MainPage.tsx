@@ -25,10 +25,7 @@ const MainPage = () => {
     const [inputValue, onChangeInput] = useState('');
 
     return (
-        <Page
-            data-testid="MainPage"
-        >
-
+        <Page data-testid="MainPage">
             <h1>{t('Main')}</h1>
             {t('Main content')}
             <Spinner />
@@ -48,7 +45,6 @@ const MainPage = () => {
                 feedbackTitle={t('send feedback about article')}
                 hasFeedback
             />
-
         </Page>
     );
 };

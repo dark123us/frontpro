@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { ListBox } from './ListBox';
 import { Theme } from '@/shared/const/theme';
 
@@ -19,7 +17,11 @@ export default {
     },
     argTypes: {},
     decorators: [
-        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: 100 }}>
+                <Story />
+            </div>
+        ),
     ],
 } as ComponentMeta<typeof ListBox>;
 

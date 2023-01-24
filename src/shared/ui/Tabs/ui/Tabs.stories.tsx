@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Tabs } from './Tabs';
 import { Theme } from '@/shared/const/theme';
 
@@ -21,9 +19,7 @@ export default {
     argTypes: {},
 } as ComponentMeta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => (
-    <Tabs {...args} />
-);
+const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const Main = Template.bind({});
 Main.args = {};

@@ -9,7 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
-
+        "prettier",
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -26,10 +26,8 @@ module.exports = {
         'react-hooks',
         'frontpro-eslint-plugin',
         'unused-imports',
-    ],
+    ], 
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
         'react/react-in-jsx-scope': 'off',
         'react/require-default-props': 'off',
         'react/jsx-filename-extension': [2, {
@@ -37,7 +35,6 @@ module.exports = {
         }],
         'react/jsx-props-no-spreading': 'warn',
         'react/function-component-definition': 'off',
-        indent: [2, 4],
         'import/no-unresolved': 'off',
         'import/extensions': 'off',
         'import/prefer-default-export': 'off',

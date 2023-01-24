@@ -6,12 +6,12 @@ import cls from './AppLink.module.scss';
 export const enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    INVERTED = 'inverted'
+    INVERTED = 'inverted',
 }
 
-interface AppLinkProps extends LinkProps{
+interface AppLinkProps extends LinkProps {
     className?: string;
-    theme?:AppLinkTheme;
+    theme?: AppLinkTheme;
     children?: ReactNode;
 }
 

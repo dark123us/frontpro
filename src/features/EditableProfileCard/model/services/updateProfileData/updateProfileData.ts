@@ -14,33 +14,27 @@ export const updateProfileData = createAsyncThunk<
     Profile,
     void,
     ThunkConfig<Array<ValidateProfileError>>
-    >(
-        'profile/updateProfileData',
-        async (_, thunkAPI) => {
-            const {
-                extra,
-                getState,
-                rejectWithValue,
-            } = thunkAPI;
+>('profile/updateProfileData', async (_, thunkAPI) => {
+    const { extra, getState, rejectWithValue } = thunkAPI;
 
-            const formData = getProfileForm(getState());
-            const profileId = formData?.id;
+    const formData = getProfileForm(getState());
+    const profileId = formData?.id;
 
-            const errors = validateProfileData(formData);
-            if (errors.length > 0) {
-                return rejectWithValue(errors);
-            }
+    const errors = validateProfileData(formData);
+    if (errors.length > 0) {
+        return rejectWithValue(errors);
+    }
 
-            try {
-                const response = await extra.api.put<Profile>(`/profile/${profileId}`, formData);
-                if (!response.data) {
-                    throw new Error();
-                }
-                return response.data;
-            } catch (e) {
-                return rejectWithValue(
-                    [ValidateProfileError.SERVER_ERROR],
-                );
-            }
-        },
-    );
+    try {
+        const response = await extra.api.put<Profile>(
+            `/profile/${profileId}`,
+            formData,
+        );
+        if (!response.data) {
+            throw new Error();
+        }
+        return response.data;
+    } catch (e) {
+        return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+    }
+});

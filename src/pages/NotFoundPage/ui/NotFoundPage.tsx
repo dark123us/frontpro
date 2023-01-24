@@ -8,10 +8,8 @@ interface NotFoundPageProps {
     className?: string;
 }
 
-export const NotFoundPage:FC<NotFoundPageProps> = (props) => {
-    const {
-        className,
-    } = props;
+export const NotFoundPage: FC<NotFoundPageProps> = (props) => {
+    const { className } = props;
     const { t } = useTranslation();
     return (
         <Page

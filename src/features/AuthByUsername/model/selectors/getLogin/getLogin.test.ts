@@ -1,6 +1,9 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    getLoginError, getLoginIsLoading, getLoginPassword, getLoginUsername,
+    getLoginError,
+    getLoginIsLoading,
+    getLoginPassword,
+    getLoginUsername,
 } from './getLogin';
 
 describe('getLogin', () => {
@@ -16,9 +19,7 @@ describe('getLogin', () => {
 
         test('empty state', () => {
             const state: DeepPartial<StateSchema> = {
-                login: {
-
-                },
+                login: {},
             };
             expect(getLoginError(state as StateSchema)).toBeUndefined();
         });

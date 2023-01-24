@@ -8,11 +8,7 @@ interface ArticleEditFormProps {
 }
 
 export const ArticleEditForm = memo((props: ArticleEditFormProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation();
-    return (
-        <div className={classNames(cls.ArticleEditForm, {}, [className])} />
-    );
+    return <div className={classNames(cls.ArticleEditForm, {}, [className])} />;
 });

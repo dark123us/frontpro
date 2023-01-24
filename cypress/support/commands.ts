@@ -15,14 +15,24 @@ Cypress.Commands.add('addComment', addComment);
 Cypress.Commands.add('setRate', setRate);
 
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-      dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-      // @ts-ignore
-      visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
+    namespace Cypress {
+        interface Chainable {
+            drag(
+                subject: string,
+                options?: Partial<TypeOptions>,
+            ): Chainable<Element>;
+            dismiss(
+                subject: string,
+                options?: Partial<TypeOptions>,
+            ): Chainable<Element>;
+            // @ts-ignore
+            visit(
+                originalFn: CommandOriginalFn,
+                url: string,
+                options: Partial<VisitOptions>,
+            ): Chainable<Element>;
+        }
     }
-  }
 }
 
 export {};

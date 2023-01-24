@@ -19,7 +19,7 @@ describe('fetchNextArticlesPage.test', () => {
 
         const result = await thunk.callThunk();
         expect(thunk.dispatch).toBeCalledTimes(4); // dispatch вызвался 4 раза
-        expect(fetchArticleList).toHaveBeenCalledWith({ }); // функция вызвалась с параметрами
+        expect(fetchArticleList).toHaveBeenCalledWith({}); // функция вызвалась с параметрами
     });
 
     test("don't change page", async () => {

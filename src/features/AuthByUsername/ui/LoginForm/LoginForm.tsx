@@ -1,13 +1,14 @@
-import {
-    memo, ReactNode, useCallback,
-} from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input/ui/Input';
 import { Text, TextTheme } from '@/shared/ui/Text';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getLoginError,
@@ -15,9 +16,7 @@ import {
     getLoginPassword,
     getLoginUsername,
 } from '../../model/selectors/getLogin/getLogin';
-import {
-    loginByUsername,
-} from '../../model/service/loginByUsername/loginByUsername';
+import { loginByUsername } from '../../model/service/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
@@ -29,15 +28,10 @@ export interface LoginFormProps {
 
 const initialReducers: ReducersList = {
     login: loginReducer,
-
 };
 
 export const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        onSuccess,
-        children,
-    } = props;
+    const { className, onSuccess, children } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -46,12 +40,18 @@ export const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));

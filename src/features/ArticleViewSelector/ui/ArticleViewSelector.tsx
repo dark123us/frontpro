@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TileIcon from '@/shared/assets/icons/tiled-24-24.svg';
@@ -9,8 +8,8 @@ import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
     className?: string;
-    view: ArticleView
-    onViewClick?: (view: ArticleView) => void
+    view: ArticleView;
+    onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -25,10 +24,7 @@ const viewTypes = [
 ];
 
 export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
-    const {
-        className, onViewClick, view,
-    } = props;
-    const { t } = useTranslation();
+    const { className, onViewClick, view } = props;
 
     const onViewChange = (newView: ArticleView) => () => {
         onViewClick?.(newView);
@@ -37,9 +33,11 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((viewType, i) => (
-
-                // eslint-disable-next-line react/no-array-index-key
-                <Button key={i} theme={ButtonTheme.CLEAR} onClick={onViewChange(viewType.view)}>
+                <Button
+                    key={viewType.view}
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onViewChange(viewType.view)}
+                >
                     <Icon
                         className={classNames(
                             '',

@@ -43,8 +43,6 @@ describe('validateProfileData.test', () => {
 
     test('undefined', async () => {
         const result = validateProfileData();
-        expect(result).toEqual([
-            ValidateProfileError.NO_DATA,
-        ]);
+        expect(result).toEqual([ValidateProfileError.NO_DATA]);
     });
 });

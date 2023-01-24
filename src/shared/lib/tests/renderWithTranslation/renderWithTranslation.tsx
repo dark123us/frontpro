@@ -3,8 +3,5 @@ import { render } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n4test from '@/shared/config/i18n/i18n4test';
 
-export const renderWithTranslation = (component: ReactNode) => render(
-    <I18nextProvider i18n={i18n4test}>
-        {component}
-    </I18nextProvider>,
-);
+export const renderWithTranslation = (component: ReactNode) =>
+    render(<I18nextProvider i18n={i18n4test}>{component}</I18nextProvider>);

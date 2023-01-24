@@ -9,15 +9,11 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 export interface ArticleRatingProps {
     className?: string;
     children?: ReactNode;
-    articleId: string
+    articleId: string;
 }
 
 export const ArticleRating = memo((props: ArticleRatingProps) => {
-    const {
-        className,
-        children,
-        articleId,
-    } = props;
+    const { className, children, articleId } = props;
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
     const userId = userData?.id ?? '';
@@ -28,22 +24,31 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
 
     const [rateArticleMutation] = useRateArticle();
 
-    const handleRatingArticle = useCallback((rate: number, feedback?: string) => {
-        rateArticleMutation({
-            articleId,
-            rate,
-            userId,
-            feedback,
-        });
-    }, [articleId, rateArticleMutation, userId]);
+    const handleRatingArticle = useCallback(
+        (rate: number, feedback?: string) => {
+            rateArticleMutation({
+                articleId,
+                rate,
+                userId,
+                feedback,
+            });
+        },
+        [articleId, rateArticleMutation, userId],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback?: string) => {
-        handleRatingArticle(starsCount, feedback);
-    }, [handleRatingArticle]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback?: string) => {
+            handleRatingArticle(starsCount, feedback);
+        },
+        [handleRatingArticle],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleRatingArticle(starsCount);
-    }, [handleRatingArticle]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleRatingArticle(starsCount);
+        },
+        [handleRatingArticle],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;

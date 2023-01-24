@@ -5,7 +5,6 @@ export default {
     title: 'Shared/Stack/HStack',
     component: HStack,
     args: {
-
         style: {
             width: '100%',
             height: '100vh',
@@ -20,13 +19,10 @@ export default {
                 <div>fourth</div>
             </>
         ),
-
     },
     argTypes: {},
 } as ComponentMeta<typeof HStack>;
 
-const Template: ComponentStory<typeof HStack> = (args) => (
-    <HStack {...args} />
-);
+const Template: ComponentStory<typeof HStack> = (args) => <HStack {...args} />;
 
 export const Main = Template.bind({});

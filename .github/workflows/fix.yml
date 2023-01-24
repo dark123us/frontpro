@@ -42,7 +42,7 @@ jobs:
         if: always()
         run: npm run test:unit
       - name: Generate HTML report
-        run: npm run test:ui:report
+        run: npm run test:ui:reportall
         if: always()
       - name: move loki
         run: mv .loki reports/

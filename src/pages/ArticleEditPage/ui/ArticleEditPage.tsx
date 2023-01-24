@@ -10,11 +10,9 @@ interface ArticleEditPageProps {
 }
 
 export const ArticleEditPage = memo((props: ArticleEditPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation();
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     const isEdit = Boolean(id);
 
@@ -22,7 +20,6 @@ export const ArticleEditPage = memo((props: ArticleEditPageProps) => {
         // eslint-disable-next-line i18next/no-literal-string
         <Page className={classNames(cls.ArticleEditPage, {}, [className])}>
             {isEdit ? `Article edit page id=${id}` : 'Article create page'}
-
         </Page>
     );
 });

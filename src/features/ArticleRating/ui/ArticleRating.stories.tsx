@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { StoreDecorator } from '@/shared/config/Storybook/Decorators/StoreDecorator';
 import { ArticleRating } from './ArticleRating';
 import { Theme } from '@/shared/const/theme';
@@ -10,8 +8,7 @@ import { Theme } from '@/shared/const/theme';
 export default {
     title: 'Features/ArticleRating',
     component: ArticleRating,
-    args: {
-    },
+    args: {},
     decorators: [StoreDecorator({ user: { authData: { id: '1' } } }), withMock],
     argTypes: {},
     parameters: {
@@ -42,6 +39,4 @@ Dark.args = { articleId: '1' };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const WithoutRate = Template.bind({});
-WithoutRate.args = {
-
-};
+WithoutRate.args = {};

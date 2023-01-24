@@ -9,5 +9,4 @@ export const TranslationDecorator = (StoryComponent: Story) => (
             <StoryComponent />
         </Suspense>
     </I18nextProvider>
-
 );

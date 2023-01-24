@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 
 interface ErrorBoundaryMessageProps {
-    className?: string
+    className?: string;
 }
 
 export const ErrorBoundaryMessage: FC<ErrorBoundaryMessageProps> = (props) => {

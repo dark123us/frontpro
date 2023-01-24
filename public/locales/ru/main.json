@@ -1,8 +1,8 @@
 {
-  "Main": "Главная",
-  "Main content": "Основной контент",
-  "getError": "Вызываем ошибку",
-  "placeholder": "placeholder",
-  "How are you the article": "How are you the article",
-  "send feedback about article": "send feedback about article"
+    "Main": "Главная",
+    "Main content": "Основной контент",
+    "getError": "Вызываем ошибку",
+    "placeholder": "placeholder",
+    "How are you the article": "How are you the article",
+    "send feedback about article": "send feedback about article"
 }

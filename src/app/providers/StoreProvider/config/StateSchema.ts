@@ -1,5 +1,9 @@
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@/entities/Counter';
@@ -16,43 +20,44 @@ import { ProfileSchema } from '@/features/EditableProfileCard';
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-    scrollRestore: ScrollRestoreSchema
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    scrollRestore: ScrollRestoreSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // Асинхронные редюсеры
     login?: LoginSchema;
     profile?: ProfileSchema;
-    articleDetails ?: ArticleDetailsSchema;
+    articleDetails?: ArticleDetailsSchema;
 
-    addCommentForm?: AddCommentFormSchema
-    articlesPage?: ArticlesPageSchema
-    articleDetailsPage?: ArticleDetailsPageSchema
-
+    addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
 
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    reduce: (state:StateSchema, action:AnyAction) => CombinedState<StateSchema>;
-    add:(key:StateSchemaKey, reducer:Reducer) => void;
-    remove: (key:StateSchemaKey) => void;
-    getMountReducers: ()=> MountedReducers
-
+    reduce: (
+        state: StateSchema,
+        action: AnyAction,
+    ) => CombinedState<StateSchema>;
+    add: (key: StateSchemaKey, reducer: Reducer) => void;
+    remove: (key: StateSchemaKey) => void;
+    getMountReducers: () => MountedReducers;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
     // navigate?: (to: To, options?: NavigateOptions) => void,
- }
+}
 
 export interface ThunkConfig<T> {
-     rejectValue: T;
-     extra: ThunkExtraArg;
-     state: StateSchema;
- }
+    rejectValue: T;
+    extra: ThunkExtraArg;
+    state: StateSchema;
+}

@@ -4,7 +4,7 @@ import { BuildPaths } from '../build/types/config';
 import { cssLoader } from '../build/loaders/cssLoader';
 import { fileLoader } from '../build/loaders/fileLoaders';
 
-export default ({ config }: {config:webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         src: path.resolve(__dirname, '..', '..', 'src'),
         template: '',
@@ -38,12 +38,14 @@ export default ({ config }: {config:webpack.Configuration}) => {
         '@': paths.src,
     };
 
-    config!.plugins!.push(new DefinePlugin({
-        __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify('http://localhost:6006'),
-        __PROJECT__: JSON.stringify('storybook'),
-        // __API__: JSON.stringify(''),
-    }));
+    config!.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify('http://localhost:6006'),
+            __PROJECT__: JSON.stringify('storybook'),
+            // __API__: JSON.stringify(''),
+        }),
+    );
 
     return config;
 };

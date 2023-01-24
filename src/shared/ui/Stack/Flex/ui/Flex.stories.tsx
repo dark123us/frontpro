@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-    ThemeDecorator,
-} from '@/shared/config/Storybook/Decorators/ThemeDecorator';
+import { ThemeDecorator } from '@/shared/config/Storybook/Decorators/ThemeDecorator';
 import { Flex } from './Flex';
 import { Theme } from '@/shared/const/theme';
 
@@ -28,9 +26,7 @@ export default {
     argTypes: {},
 } as ComponentMeta<typeof Flex>;
 
-const Template: ComponentStory<typeof Flex> = (args) => (
-    <Flex {...args} />
-);
+const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
 export const Row = Template.bind({});
 Row.args = {

@@ -8,9 +8,9 @@ const stars = [1, 2, 3, 4, 5];
 interface StarRatingProps {
     className?: string;
     children?: ReactNode;
-    onSelect?: (count: number)=> void
+    onSelect?: (count: number) => void;
     size?: number;
-    selectedStars?: number
+    selectedStars?: number;
 }
 
 export const StarRating = memo((props: StarRatingProps) => {
@@ -26,7 +26,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     const [current, setCurrent] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
-    const onHover = (count:number) => () => {
+    const onHover = (count: number) => () => {
         if (!isSelected) {
             setCurrent(count);
         }
@@ -46,17 +46,21 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <div
-            className={classNames(cls.StarRating, {}, [className])}
-        >
+        <div className={classNames(cls.StarRating, {}, [className])}>
             {stars.map((starNumber) => (
                 <Icon
-                    data-testid={`StarRating.${starNumber}-${current >= starNumber}`}
-                    className={classNames(cls.starIcon, {
-                        [cls.hovered]: current >= starNumber,
-                        [cls.normal]: current < starNumber,
-                        [cls.selected]: isSelected,
-                    }, [])}
+                    data-testid={`StarRating.${starNumber}-${
+                        current >= starNumber
+                    }`}
+                    className={classNames(
+                        cls.starIcon,
+                        {
+                            [cls.hovered]: current >= starNumber,
+                            [cls.normal]: current < starNumber,
+                            [cls.selected]: isSelected,
+                        },
+                        [],
+                    )}
                     Svg={StarIcon}
                     key={starNumber}
                     width={size}
@@ -65,7 +69,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onMouseEnter={onHover(starNumber)}
                     onClick={onClick(starNumber)}
                 />
-            )) }
+            ))}
         </div>
     );
 });

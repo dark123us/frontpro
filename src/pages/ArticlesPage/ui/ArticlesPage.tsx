@@ -1,7 +1,10 @@
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
@@ -13,15 +16,14 @@ import { articlesPageReducer } from '../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
-
 };
 
-export const ArticlesPage = (props:ArticlesPageProps) => {
+export const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
 
     const dispatch = useAppDispatch();
@@ -45,7 +47,6 @@ export const ArticlesPage = (props:ArticlesPageProps) => {
             >
                 <ArticlesPageFilters />
                 <ArticleInfiniteList className={cls.list} />
-
             </Page>
         </DynamicModuleLoader>
     );

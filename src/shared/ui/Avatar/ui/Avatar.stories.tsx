@@ -6,13 +6,10 @@ export default {
     title: 'Shared/Avatar',
     component: Avatar,
     argTypes: {},
-    args: {
-    },
+    args: {},
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => (
-    <Avatar {...args} />
-);
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

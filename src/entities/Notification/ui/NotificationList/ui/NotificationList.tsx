@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
@@ -13,11 +12,7 @@ interface NotificationListProps {
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
-    const {
-        className,
-        children,
-    } = props;
-    const { t } = useTranslation();
+    const { className, children } = props;
     const { data, isLoading } = useNotifications(null, {
         pollingInterval: 5000,
     });

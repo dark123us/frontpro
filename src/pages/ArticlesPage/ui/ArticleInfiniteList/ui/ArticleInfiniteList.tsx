@@ -15,9 +15,7 @@ interface ArticleInfiniteListProps {
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation();
     // const dispatch = useAppDispatch();
     // const onViewChange = useCallback((view: ArticleView) => {
@@ -32,7 +30,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     // const hasMore = useSelector(getArticlesPageHasMore);
 
     if (error) {
-        return (<Text text={t('error by loading')} />);
+        return <Text text={t('error by loading')} />;
     }
 
     return (

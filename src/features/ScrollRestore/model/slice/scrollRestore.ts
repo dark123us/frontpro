@@ -9,10 +9,12 @@ const scrollRestoreSlice = createSlice({
     name: 'scrollRestore',
     initialState,
     reducers: {
-        setScrollPosition: (state, { payload }:PayloadAction<{path: string; position: number}>) => {
+        setScrollPosition: (
+            state,
+            { payload }: PayloadAction<{ path: string; position: number }>,
+        ) => {
             state.scroll[payload.path] = payload.position;
         },
-
     },
     // extraReducers: (builder) => {
     //     builder
@@ -30,7 +32,5 @@ const scrollRestoreSlice = createSlice({
     // },
 });
 
-export const {
-    actions: scrollRestoreActions,
-    reducer: scrollRestoreReducer,
-} = scrollRestoreSlice;
+export const { actions: scrollRestoreActions, reducer: scrollRestoreReducer } =
+    scrollRestoreSlice;

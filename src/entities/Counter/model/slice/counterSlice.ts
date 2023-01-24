@@ -1,7 +1,7 @@
 import { CounterSchema } from '../types/counterSchema';
 import { buildSlice } from '@/shared/lib/store/buildSlice';
 
-const initialState:CounterSchema = {
+const initialState: CounterSchema = {
     value: 0,
 };
 
