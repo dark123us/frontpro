@@ -13,7 +13,6 @@ describe('app/router/AppRouter', () => {
         componentRender(<AppRouter />, {
             route: getRouteAbout(),
         });
-
         const page = await screen.findByTestId('AboutPage');
         expect(page).toBeInTheDocument();
     });
